@@ -36,7 +36,7 @@ distance_field_name=""
 mapFields = ["TRA_Name","ID"]
 
 temp_out_path = "E:/ncdeq/DMS_RBRP.gdb"
-final_out_path = "E:/ncdeq/RDRBP_AGO.gdb"
+final_out_path = "E:/ncdeq/code/ncdeq-data/RDRBP_AGO.gdb"
 final_out_name = "TRA_XWALK"
 xwalk = os.path.join(final_out_path, final_out_name)
 

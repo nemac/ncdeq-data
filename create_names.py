@@ -27,7 +27,9 @@ HUC6_NAMES_VIEW__2_ = HUC6_NAMES_VIEW
 HUC6_NAMES_VIEW__3_ = HUC6_NAMES_VIEW__2_
 rbrp_huc_names_TMP = "E:\\ncdeq\\RDRBP_AGO.gdb\\rbrp_huc_names_TMP"
 rbrp_huc_names = rbrp_huc_names_TMP
-RDRBP_AGO_gdb = "E:\\ncdeq\\RDRBP_AGO.gdb"
+
+
+RDRBP_AGO_gdb = "E:\\ncdeq\\code\\ncdeq-data\\RDRBP_AGO.gdb"
 Delete_succeeded = "true"
 
 # Process: Make Table View (3)

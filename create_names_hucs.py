@@ -13,20 +13,20 @@ import arcpy
 
 
 # Local variables:
-Cataloging_Unit = "E:\\ncdeq\\RDRBP_AGO.gdb\\huc_8"
+Cataloging_Unit = "E:\\ncdeq\\code\\ncdeq-data\\RDRBP_AGO.gdb\\huc_8"
 Cataloging_Unit__3_ = Cataloging_Unit
 Cataloging_Unit__7_ = Cataloging_Unit
-rbrp_huc_names = "E:\\ncdeq\\RDRBP_AGO.gdb\\rbrp_huc_names"
+rbrp_huc_names = "E:\\ncdeq\\code\\ncdeq-data\\RDRBP_AGO.gdb\\rbrp_huc_names"
 Cataloging_Unit__2_ = Cataloging_Unit__7_
-HUC_12 = "E:\\ncdeq\\RDRBP_AGO.gdb\\huc_12"
+HUC_12 = "E:\\ncdeq\\code\\ncdeq-data\\RDRBP_AGO.gdb\\huc_12"
 Cataloging_Unit__5_ = HUC_12
 HUC_12__2_ = HUC_12
-rbrp_huc_names__2_ = "E:\\ncdeq\\RDRBP_AGO.gdb\\rbrp_huc_names"
+rbrp_huc_names__2_ = "E:\\ncdeq\\code\\ncdeq-data\\RDRBP_AGO.gdb\\rbrp_huc_names"
 HUC_12__4_ = HUC_12__2_
-River_Basin = "E:\\ncdeq\\RDRBP_AGO.gdb\\huc_6"
+River_Basin = "E:\\ncdeq\\code\\ncdeq-data\\RDRBP_AGO.gdb\\huc_6"
 Cataloging_Unit__6_ = River_Basin
 River_Basin__2_ = River_Basin
-rbrp_huc_names__3_ = "E:\\ncdeq\\RDRBP_AGO.gdb\\rbrp_huc_names"
+rbrp_huc_names__3_ = "E:\\ncdeq\\code\\ncdeq-data\\RDRBP_AGO.gdb\\rbrp_huc_names"
 River_Basin__3_ = River_Basin__2_
 
 # Process: Join Field

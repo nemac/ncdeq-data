@@ -24,7 +24,7 @@ path = "E:\\ncdeq\\DMS_RBRP.gdb"
 temp_dissolve = "E:\\DMS_RBRP.gdb\\temp_dissolve"
 
 #output data
-outPathGDB = "E:\\ncdeq"
+outPathGDB = "E:\\ncdeq\\code\\ncdeq-data"
 outGDB = "RDRBP_AGO.gdb"
 
 uplift_Data = """[{
