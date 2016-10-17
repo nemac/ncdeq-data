@@ -25,7 +25,7 @@ temp_dissolve = "E:\\DMS_RBRP.gdb\\temp_dissolve"
 
 
 #output data
-outPathGDB = "E:\\ncdeq"
+outPathGDB = "E:\\ncdeq\\code\\ncdeq-data"
 outGDB = "RDRBP_AGO.gdb"
 
 #baseLine data
@@ -667,6 +667,7 @@ for chartType in chartTypes:
 			if (output_dict):
 				transposeField = output_dict[0]['fieldName']
 				temp_transposed = os.path.join(outGDB, 'temp_transposed_' + currentGeographyLevel + '_'  + transposeField)
+				# temp_transposed = os.path.join(outGDB,'test')
 
 				#if feature class exists delete
 				if arcpy.Exists(temp_transposed):
