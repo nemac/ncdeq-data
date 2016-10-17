@@ -30,7 +30,7 @@ outGDB = "RDRBP_AGO.gdb"
 uplift_Data = """[{
 	"fieldName": "Hab_uplift_Restoration",
 	"chartDescription": "Habitat Uplift Restoration",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Uplift Restoration",
 	"chartLevel": "3",
 	"chartId": "22",
@@ -38,7 +38,7 @@ uplift_Data = """[{
 }, {
 	"fieldName": "Hab_uplift_AqCon",
 	"chartDescription": "Habitat Uplift Aquatic Connectivity",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Aquatic Connectivity",
 	"chartLevel": "3",
 	"chartId": "21",
@@ -46,7 +46,7 @@ uplift_Data = """[{
 }, {
 	"fieldName": "Hab_uplift_AdvConv",
 	"chartDescription": "Habitat Uplift Avoided Conversion",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Avoided Conversion",
 	"chartLevel": "3",
 	"chartId": "20",
@@ -54,7 +54,7 @@ uplift_Data = """[{
 }, {
 	"fieldName": "Hab_uplift_WetlandsBMPs",
 	"chartDescription": "Habitat Wetlands and BMPs",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Wetlands and BMPs",
 	"chartLevel": "3",
 	"chartId": "19",
@@ -62,7 +62,7 @@ uplift_Data = """[{
 },{
 	"fieldName": "WQ_uplift_norm",
 	"chartDescription": "Total Water Quality Uplift",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Water Quality",
 	"chartLevel": "2",
 	"chartId": "6",
@@ -70,7 +70,7 @@ uplift_Data = """[{
 }, {
 	"fieldName": "Hydro_uplift_norm",
 	"chartDescription": "Total Hydrology Uplift",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Hydrology",
 	"chartLevel": "2",
 	"chartId": "5",
@@ -78,7 +78,7 @@ uplift_Data = """[{
 }, {
 	"fieldName": "Hab_uplift_norm",
 	"chartDescription": "Total Habitat Uplift",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Habitat",
 	"chartLevel": "2",
 	"chartId": "2",
@@ -86,7 +86,7 @@ uplift_Data = """[{
 }, {
 	"fieldName": "ALL_uplift",
 	"chartDescription": "Total Uplift",
-	"chartType": "UPLIFT",
+	"chartType": "TRA",
 	"chartLabel": "Total",
 	"chartLevel": "1",
 	"chartId": "1",
@@ -108,11 +108,6 @@ transposedTemplate =[{"fieldname": "ID","fieldType": "TEXT","Length":"150"},
 
 outGDBFull =  os.path.join(outPathGDB, outGDB)
 
-# if arcpy.Exists(outGDBFull):
-# 	arcpy.Delete_management(outGDBFull)
-
-
-# arcpy.CreateFileGDB_management (outPathGDB, outGDB, "10.0")
 
 #result data
 transposed =  os.path.join(outGDBFull, 'ncdeq_normailized')
@@ -303,3 +298,6 @@ if FieldExist(inputFC,'HUC_6'):
 	deleteFields = []
 	deleteFields.append('HUC_6')
 	t = arcpy.DeleteField_management(inputFC, deleteFields)
+
+
+#process xwalk for tras to hucs
