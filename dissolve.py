@@ -85,15 +85,7 @@ BaseLineData = """[{
 	"chartLevel": "3",
 	"chartId": "10",
 	"chartMatchId": "3"
-}, {
-	"fieldName": "q50yr_base_norm",
-	"chartDescription": "Hydrology 50 year peak flow",
-	"chartType": "BASELINE",
-	"chartLabel": "50 year peak",
-	"chartLevel": "3",
-	"chartId": "9",
-	"chartMatchId": "3"
-}, {
+},{
 	"fieldName": "q100yr_base_norm",
 	"chartDescription": "Hydrology 100 year peak flow",
 	"chartType": "BASELINE",
@@ -328,15 +320,7 @@ uplift_Data = """[{
 	"chartLevel": "3",
 	"chartId": "13",
 	"chartMatchId": "5"
-}, {
-	"fieldName": "q10yr_uplift_norm",
-	"chartDescription": "Hydrology 50 year peak flow",
-	"chartType": "UPLIFT",
-	"chartLabel": "50 year peak",
-	"chartLevel": "3",
-	"chartId": "12",
-	"chartMatchId": "5"
-}, {
+},{
 	"fieldName": "q50yr_uplift_norm",
 	"chartDescription": "Hydrology 50 year peak flow",
 	"chartType": "UPLIFT",
