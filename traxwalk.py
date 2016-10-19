@@ -54,9 +54,9 @@ if arcpy.Exists(xwalk):
 
 arcpy.CreateTable_management(final_out_path, final_out_name, "", "")
 
-xwalk_Template =[{"fieldname": "ID","fieldType": "TEXT","Length":"100"},
-					 {"fieldname": "TRA_Name","fieldType": "TEXT","Length":"50"},
-					 {"fieldname": "TYPE","fieldType": "TEXT","Length":"100"}]
+#transposed_template data
+with open('json/tra_xwalk_template.json') as data_file:
+    xwalk_Template = json.load(data_file)
 
 for field in xwalk_Template:
 	fieldName = field['fieldname']

@@ -1,0 +1,13 @@
+[{
+	"fieldname": "ID",
+	"fieldType": "TEXT",
+	"Length": "100"
+}, {
+	"fieldname": "TRA_Name",
+	"fieldType": "TEXT",
+	"Length": "50"
+}, {
+	"fieldname": "TYPE",
+	"fieldType": "TEXT",
+	"Length": "100"
+}]
