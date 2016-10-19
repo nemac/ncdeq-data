@@ -27,92 +27,20 @@ temp_dissolve = "E:\\DMS_RBRP.gdb\\temp_dissolve"
 outPathGDB = "E:\\ncdeq\\code\\ncdeq-data"
 outGDB = "RDRBP_AGO.gdb"
 
-uplift_Data = """[{
-	"fieldName": "Hab_uplift_Restoration",
-	"chartDescription": "Habitat Uplift Restoration",
-	"chartType": "TRA",
-	"chartLabel": "Uplift Restoration",
-	"chartLevel": "3",
-	"chartId": "22",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "Hab_uplift_AqCon",
-	"chartDescription": "Habitat Uplift Aquatic Connectivity",
-	"chartType": "TRA",
-	"chartLabel": "Aquatic Connectivity",
-	"chartLevel": "3",
-	"chartId": "21",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "Hab_uplift_AdvConv",
-	"chartDescription": "Habitat Uplift Avoided Conversion",
-	"chartType": "TRA",
-	"chartLabel": "Avoided Conversion",
-	"chartLevel": "3",
-	"chartId": "20",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "Hab_uplift_WetlandsBMPs",
-	"chartDescription": "Habitat Wetlands and BMPs",
-	"chartType": "TRA",
-	"chartLabel": "Wetlands and BMPs",
-	"chartLevel": "3",
-	"chartId": "19",
-	"chartMatchId": "2"
-},{
-	"fieldName": "WQ_uplift_norm",
-	"chartDescription": "Total Water Quality Uplift",
-	"chartType": "TRA",
-	"chartLabel": "Water Quality",
-	"chartLevel": "2",
-	"chartId": "6",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "Hydro_uplift_norm",
-	"chartDescription": "Total Hydrology Uplift",
-	"chartType": "TRA",
-	"chartLabel": "Hydrology",
-	"chartLevel": "2",
-	"chartId": "5",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "Hab_uplift_norm",
-	"chartDescription": "Total Habitat Uplift",
-	"chartType": "TRA",
-	"chartLabel": "Habitat",
-	"chartLevel": "2",
-	"chartId": "2",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "ALL_uplift",
-	"chartDescription": "Total Uplift",
-	"chartType": "TRA",
-	"chartLabel": "Total",
-	"chartLevel": "1",
-	"chartId": "1",
-	"chartMatchId": "1"
-}]"""
 
-transposedTemplate =[{"fieldname": "ID","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "geography_level","fieldType": "LONG","Length":""},
-					 {"fieldname": "geography_match_id","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "geography_label","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "chart_id","fieldType": "LONG","Length":""},
-					 {"fieldname": "chart_matchid","fieldType": "LONG","Length":""},
-					 {"fieldname": "chart_level","fieldType": "LONG","Length":""},
-					 {"fieldname": "chart_label","fieldType": "TEXT","Length":"255"},
-					 {"fieldname": "chart_value","fieldType": "TEXT","Length":"255"},
-					 {"fieldname": "chart_description","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "chart_type","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "chart_level_label","fieldType": "TEXT","Length":"150"}]
+#uplift data
+with open('json/tra_mapping.json') as data_file:
+    tra_data = json.load(data_file)
+
+#transposed_template data
+with open('json/transposed_template.json') as data_file:
+    transposedTemplate = json.load(data_file)
 
 outGDBFull =  os.path.join(outPathGDB, outGDB)
 
 
 #result data
 transposed =  os.path.join(outGDBFull, 'ncdeq_normailized')
-
-# arcpy.CreateTable_management(outGDBFull,'ncdeq_normailized')
 
 
 for field in transposedTemplate:
@@ -136,12 +64,13 @@ def FieldExist(featureclass, fieldname):
 		return False
 
 
-
-geographyLevels =[ {'level':'TRA','TRA_Name':'TRA_Name','fieldName':['TRA_Name','TRA_TYPE'],'match':'0','geographyLevel':99}]
+#transposed_template data
+with open('json/geography_levels_tra.json') as data_file:
+    geographyLevels = json.load(data_file)
 
 chartTypes = [{'name':'TRA',
 			   'table':'TRA',
-			   'fields_conversion':uplift_Data,
+			   'fields_conversion':tra_data,
 			   'fields_dissovled': [['ALL_uplift', 'MEAN'],
 			   						['Hab_uplift_WetlandsBMPs', 'MEAN'],
 			   						['Hab_uplift_AvdConv','MEAN'],
@@ -157,16 +86,13 @@ for chartType in chartTypes:
 	print 'Chart Type: ' + chartType['name']
 	chartTypeName = chartType['name']
 
-	#NHDCat_comb_baseline_Layer = "NHDCat_comb_baseline"
-	#NHDCat_comb_uplift_Layer = "NHDCat_comb_uplift"
-
 	inputFC =  os.path.join(path, chartType['table'])
 
 	#get fields in input data
 	fields = arcpy.ListFields(  os.path.join(path, inputFC)  )
 
 	#get json data for how to deal with each field
-	input_dict = json.loads(chartType['fields_conversion'])
+	input_dict = chartType['fields_conversion']
 
 
 	for geog in geographyLevels:

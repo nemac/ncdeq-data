@@ -1,0 +1,7 @@
+[{
+	"level": "TRA",
+	"TRA_Name": "TRA_Name",
+	"fieldName": ["TRA_Name", "TRA_TYPE"],
+	"match": "0",
+	"geographyLevel": 99
+}]

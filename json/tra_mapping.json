@@ -1,0 +1,65 @@
+[{
+	"fieldName": "Hab_uplift_Restoration",
+	"chartDescription": "Habitat Uplift Restoration",
+	"chartType": "TRA",
+	"chartLabel": "Uplift Restoration",
+	"chartLevel": "3",
+	"chartId": "22",
+	"chartMatchId": "2"
+}, {
+	"fieldName": "Hab_uplift_AqCon",
+	"chartDescription": "Habitat Uplift Aquatic Connectivity",
+	"chartType": "TRA",
+	"chartLabel": "Aquatic Connectivity",
+	"chartLevel": "3",
+	"chartId": "21",
+	"chartMatchId": "2"
+}, {
+	"fieldName": "Hab_uplift_AdvConv",
+	"chartDescription": "Habitat Uplift Avoided Conversion",
+	"chartType": "TRA",
+	"chartLabel": "Avoided Conversion",
+	"chartLevel": "3",
+	"chartId": "20",
+	"chartMatchId": "2"
+}, {
+	"fieldName": "Hab_uplift_WetlandsBMPs",
+	"chartDescription": "Habitat Wetlands and BMPs",
+	"chartType": "TRA",
+	"chartLabel": "Wetlands and BMPs",
+	"chartLevel": "3",
+	"chartId": "19",
+	"chartMatchId": "2"
+}, {
+	"fieldName": "WQ_uplift_norm",
+	"chartDescription": "Total Water Quality Uplift",
+	"chartType": "TRA",
+	"chartLabel": "Water Quality",
+	"chartLevel": "2",
+	"chartId": "6",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "Hydro_uplift_norm",
+	"chartDescription": "Total Hydrology Uplift",
+	"chartType": "TRA",
+	"chartLabel": "Hydrology",
+	"chartLevel": "2",
+	"chartId": "5",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "Hab_uplift_norm",
+	"chartDescription": "Total Habitat Uplift",
+	"chartType": "TRA",
+	"chartLabel": "Habitat",
+	"chartLevel": "2",
+	"chartId": "2",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "ALL_uplift",
+	"chartDescription": "Total Uplift",
+	"chartType": "TRA",
+	"chartLabel": "Total",
+	"chartLevel": "1",
+	"chartId": "1",
+	"chartMatchId": "1"
+}]
