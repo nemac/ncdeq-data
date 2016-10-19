@@ -29,399 +29,16 @@ outPathGDB = "E:\\ncdeq\\code\\ncdeq-data"
 outGDB = "RDRBP_AGO.gdb"
 
 #baseLine data
-BaseLineData = """[{
-	"fieldName": "N_CMAQ2002KG_base_norm",
-	"chartDescription": "Nitrogen Source Atmosphere",
-	"chartType": "BASELINE",
-	"chartLabel": "Nitrogen Atmosphere",
-	"chartLevel": "4",
-	"chartId": "16",
-	"chartMatchId": "6"
-}, {
-	"fieldName": "N_AG_base_norm",
-	"chartDescription": "Nitrogen Source Agriculture",
-	"chartType": "BASELINE",
-	"chartLabel": "Nitrogen Agriculture",
-	"chartLevel": "4",
-	"chartId": "15",
-	"chartMatchId": "6"
-}, {
-	"fieldName": "N_URBAN_base_norm",
-	"chartDescription": "Nitrogen Source Urban",
-	"chartType": "BASELINE",
-	"chartLabel": "Nitrogen Urban",
-	"chartLevel": "4",
-	"chartId": "14",
-	"chartMatchId": "6"
-}, {
-	"fieldName": "P_URBAN_base_norm",
-	"chartDescription": "Phosphorus Source Urban",
-	"chartType": "BASELINE",
-	"chartLabel": "Phosphorus Urban",
-	"chartLevel": "4",
-	"chartId": "13",
-	"chartMatchId": "5"
-}, {
-	"fieldName": "P_AG_base_norm",
-	"chartDescription": "Phosphorus Source Agriculture",
-	"chartType": "BASELINE",
-	"chartLabel": "Phosphorus Agriculture",
-	"chartLevel": "4",
-	"chartId": "12",
-	"chartMatchId": "5"
-}, {
-	"fieldName": "q2yr_base_norm",
-	"chartDescription": "Hydrology 2 year peak flow",
-	"chartType": "BASELINE",
-	"chartLabel": "2 year peak",
-	"chartLevel": "3",
-	"chartId": "11",
-	"chartMatchId": "3"
-}, {
-	"fieldName": "q10yr_base_norm",
-	"chartDescription": "Hydrology 50 year peak flow",
-	"chartType": "BASELINE",
-	"chartLabel": "50 year peak",
-	"chartLevel": "3",
-	"chartId": "10",
-	"chartMatchId": "3"
-},{
-	"fieldName": "q100yr_base_norm",
-	"chartDescription": "Hydrology 100 year peak flow",
-	"chartType": "BASELINE",
-	"chartLabel": "100 year peak",
-	"chartLevel": "3",
-	"chartId": "8",
-	"chartMatchId": "3"
-}, {
-	"fieldName": "MeanLikelihood_norm",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "BASELINE",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "3",
-	"chartId": "7",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "N_total_base_norm",
-	"chartDescription": "Nitrogen Baseline",
-	"chartType": "BASELINE",
-	"chartLabel": "Nitrogen",
-	"chartLevel": "3",
-	"chartId": "6",
-	"chartMatchId": "4"
-}, {
-	"fieldName": "P_total_base_norm",
-	"chartDescription": "Phosphorus Baseline",
-	"chartType": "BASELINE",
-	"chartLabel": "Phosphorus",
-	"chartLevel": "3",
-	"chartId": "5",
-	"chartMatchId": "4"
-}, {
-	"fieldName": "WQ_base_norm",
-	"chartDescription": "Total Water Quality Baseline",
-	"chartType": "BASELINE",
-	"chartLabel": "Water Quality",
-	"chartLevel": "2",
-	"chartId": "4",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "Hydro_base_norm",
-	"chartDescription": "Total Hydrology Baseline",
-	"chartType": "BASELINE",
-	"chartLabel": "Hydrology",
-	"chartLevel": "2",
-	"chartId": "3",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "Hab_base_norm",
-	"chartDescription": "Total Habitat Baseline",
-	"chartType": "BASELINE",
-	"chartLabel": "Habitat",
-	"chartLevel": "2",
-	"chartId": "2",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "ALL_base",
-	"chartDescription": "Total Baseline",
-	"chartType": "BASELINE",
-	"chartLabel": "Total",
-	"chartLevel": "1",
-	"chartId": "1",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "HUC_12",
-	"chartDescription": "",
-	"chartType": "",
-	"chartLabel": "",
-	"chartLevel": "",
-	"chartId": "0",
-	"chartMatchId": "0"
-}]"""
+with open('json/baseline_mapping.json') as data_file:
+    BaseLineData = json.load(data_file)
 
+#uplift data
+with open('json/uplift_mapping.json') as data_file:
+    uplift_Data = json.load(data_file)
 
-uplift_Data = """[{
-	"fieldName": "BF_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under buffer forestation scenario",
-    "chartType": "UPLIFT",
-	"chartLabel": "upstream buffer forestation",
-	"chartLevel": "4",
-	"chartId": "32",
-	"chartMatchId": "22"
-},{
-	"fieldName": "DD_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under downstream distance to dams scenario",
-    "chartType": "UPLIFT",
-	"chartLabel": "upstream decreased monthly downstream distance to dams",
-	"chartLevel": "4",
-	"chartId": "31",
-	"chartMatchId": "21"
-},{
-	"fieldName": "DF_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under decreased monthly minimum flow scenario",
-    "chartType": "UPLIFT",
-	"chartLabel": "upstream decreased monthly minimum flow",
-	"chartLevel": "4",
-	"chartId": "30",
-	"chartMatchId": "22"
-},{
-	"fieldName": "IF_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under increased monthly minimum flow scenario",
-    "chartType": "UPLIFT",
-	"chartLabel": "upstream increased monthly minimum flow",
-	"chartLevel": "4",
-	"chartId": "29",
-	"chartMatchId": "22"
-},{
-	"fieldName": "NR_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under nutrient reduction scenario",
-   "chartType": "UPLIFT",
-	"chartLabel": "upstream nutrient reduction",
-	"chartLevel": "4",
-	"chartId": "28",
-	"chartMatchId": "19"
-},{
-	"fieldName": "SA_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under stream alteration scenario",
-   "chartType": "UPLIFT",
-	"chartLabel": "upstream stream alteration",
-	"chartLevel": "4",
-	"chartId": "27",
-	"chartMatchId": "22"
-},{
-	"fieldName": "SC_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under stream alteration scenario",
-  "chartType": "UPLIFT",
-	"chartLabel": "upstream stream cooling",
-	"chartLevel": "4",
-	"chartId": "26",
-	"chartMatchId": "22"
-},{
-	"fieldName": "UD_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under upstream distance to dams scenario",
-  "chartType": "UPLIFT",
-	"chartLabel": "upstream distance to dams",
-	"chartLevel": "4",
-	"chartId": "25",
-	"chartMatchId": "21"
-},{
-	"fieldName": "UE_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under urban expansion",
-  "chartType": "UPLIFT",
-	"chartLabel": "urban expansion",
-	"chartLevel": "4",
-	"chartId": "24",
-	"chartMatchId": "20"
-},{
-	"fieldName": "WE_MeanUplift_norm",
-	"chartDescription": "Habitat Change in mean species likelihood under wetland expansion scenario",
-	"chartType": "UPLIFT",
-	"chartLabel": "wetland expansion",
-	"chartLevel": "4",
-	"chartId": "23",
-	"chartMatchId": "19"
-},{
-	"fieldName": "Hab_uplift_Restoration",
-	"chartDescription": "Habitat Uplift Restoration",
-	"chartType": "UPLIFT",
-	"chartLabel": "Uplift Restoration",
-	"chartLevel": "3",
-	"chartId": "22",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "Hab_uplift_AqCon",
-	"chartDescription": "Habitat Uplift Aquatic Connectivity",
-	"chartType": "UPLIFT",
-	"chartLabel": "Aquatic Connectivity",
-	"chartLevel": "3",
-	"chartId": "21",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "Hab_uplift_AdvConv",
-	"chartDescription": "Habitat Uplift Avoided Conversion",
-	"chartType": "UPLIFT",
-	"chartLabel": "Avoided Conversion",
-	"chartLevel": "3",
-	"chartId": "20",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "Hab_uplift_WetlandsBMPs",
-	"chartDescription": "Habitat Wetlands and BMPs",
-	"chartType": "UPLIFT",
-	"chartLabel": "Wetlands and BMPs",
-	"chartLevel": "3",
-	"chartId": "19",
-	"chartMatchId": "2"
-},{
-	"fieldName": "N_CMAQ2002KG_uplift_norm",
-	"chartDescription": "Nitrogen Source Atmosphere",
-	"chartType": "UPLIFT",
-	"chartLabel": "Nitrogen Atmosphere",
-	"chartLevel": "4",
-	"chartId": "18",
-	"chartMatchId": "8"
-}, {
-	"fieldName": "N_AG_uplift_norm",
-	"chartDescription": "Nitrogen Source Agriculture",
-	"chartType": "UPLIFT",
-	"chartLabel": "Nitrogen Agriculture",
-	"chartLevel": "4",
-	"chartId": "17",
-	"chartMatchId": "8"
-}, {
-	"fieldName": "N_URBAN_uplift_norm",
-	"chartDescription": "Nitrogen Source Urban",
-	"chartType": "UPLIFT",
-	"chartLabel": "Nitrogen Urban",
-	"chartLevel": "4",
-	"chartId": "16",
-	"chartMatchId": "8"
-}, {
-	"fieldName": "P_URBAN_uplift_norm",
-	"chartDescription": "Phosphorus Source Urban",
-	"chartType": "UPLIFT",
-	"chartLabel": "Phosphorus Urban",
-	"chartLevel": "4",
-	"chartId": "15",
-	"chartMatchId": "7"
-}, {
-	"fieldName": "P_AG_uplift_norm",
-	"chartDescription": "Phosphorus Source Agriculture",
-	"chartType": "UPLIFT",
-	"chartLabel": "Phosphorus Agriculture",
-	"chartLevel": "4",
-	"chartId": "14",
-	"chartMatchId": "7"
-}, {
-	"fieldName": "q2yr_uplift_norm",
-	"chartDescription": "Hydrology 2 year peak flow",
-	"chartType": "UPLIFT",
-	"chartLabel": "2 year peak",
-	"chartLevel": "3",
-	"chartId": "13",
-	"chartMatchId": "5"
-},{
-	"fieldName": "q50yr_uplift_norm",
-	"chartDescription": "Hydrology 50 year peak flow",
-	"chartType": "UPLIFT",
-	"chartLabel": "50 year peak",
-	"chartLevel": "3",
-	"chartId": "11",
-	"chartMatchId": "5"
-}, {
-	"fieldName": "q100yr_uplift_norm",
-	"chartDescription": "Hydrology 100 year peak flow",
-	"chartType": "UPLIFT",
-	"chartLabel": "100 year peak",
-	"chartLevel": "3",
-	"chartId": "10",
-	"chartMatchId": "5"
-}, {
-	"fieldName": "MeanLikelihood_norm",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "UPLIFT",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "2",
-	"chartId": "9",
-	"chartMatchId": "2"
-}, {
-	"fieldName": "N_total_uplift_norm",
-	"chartDescription": "Nitrogen Uplift",
-	"chartType": "UPLIFT",
-	"chartLabel": "Nitrogen",
-	"chartLevel": "3",
-	"chartId": "8",
-	"chartMatchId": "6"
-}, {
-	"fieldName": "P_total_uplift_norm",
-	"chartDescription": "Phosphorus Uplift",
-	"chartType": "UPLIFT",
-	"chartLabel": "Phosphorus",
-	"chartLevel": "3",
-	"chartId": "7",
-	"chartMatchId": "6"
-}, {
-	"fieldName": "WQ_uplift_norm",
-	"chartDescription": "Total Water Quality Uplift",
-	"chartType": "UPLIFT",
-	"chartLabel": "Water Quality",
-	"chartLevel": "2",
-	"chartId": "6",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "Hydro_uplift_norm",
-	"chartDescription": "Total Hydrology Uplift",
-	"chartType": "UPLIFT",
-	"chartLabel": "Hydrology",
-	"chartLevel": "2",
-	"chartId": "5",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "Hab_uplift_norm",
-	"chartDescription": "Total Habitat Uplift",
-	"chartType": "UPLIFT",
-	"chartLabel": "Habitat",
-	"chartLevel": "2",
-	"chartId": "2",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "ALL_uplift",
-	"chartDescription": "Total Uplift",
-	"chartType": "UPLIFT",
-	"chartLabel": "Total",
-	"chartLevel": "1",
-	"chartId": "1",
-	"chartMatchId": "1"
-},{
-	"fieldName": "HUC_12",
-	"chartDescription": "",
-	"chartType": "",
-	"chartLabel": "",
-	"chartLevel": "",
-	"chartId": "0",
-	"chartMatchId": "0"
-}]"""
-
-
-
-
-transposedTemplate =[{"fieldname": "ID","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "geography_level","fieldType": "LONG","Length":""},
-					 {"fieldname": "geography_match_id","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "geography_label","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "chart_id","fieldType": "LONG","Length":""},
-					 {"fieldname": "chart_matchid","fieldType": "LONG","Length":""},
-					 {"fieldname": "chart_level","fieldType": "LONG","Length":""},
-					 {"fieldname": "chart_label","fieldType": "TEXT","Length":"255"},
-					 {"fieldname": "chart_value","fieldType": "TEXT","Length":"255"},
-					 {"fieldname": "chart_description","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "chart_type","fieldType": "TEXT","Length":"150"},
-					 {"fieldname": "chart_level_label","fieldType": "TEXT","Length":"150"}]
-
-
-
-
-
+#transposed_template data
+with open('json/transposed_template.json') as data_file:
+    transposedTemplate = json.load(data_file)
 
 
 outGDBFull =  os.path.join(outPathGDB, outGDB)
@@ -458,27 +75,14 @@ def FieldExist(featureclass, fieldname):
 	else:
 		return False
 
+#transposed_template data
+with open('json/geography_levels.json') as data_file:
+    geographyLevels = json.load(data_file)
 
-#NHDCat_comb_baseline_Layer = "NHDCat_comb_baseline"
-#NHDCat_comb_uplift_Layer = "NHDCat_comb_uplift"
-
-#inputFC =  os.path.join(path, NHDCat_comb_baseline_Layer)
-
-#get fields in input data
-#fields = arcpy.ListFields(  os.path.join(path, inputFC)  )
-
-#get json data for how to deal with each field
-#input_dict = json.loads(BaseLineData)
-
-
-
-
-geographyLevels =[ {'level':'huc_6','fieldName':'HUC_6','match':'6','geographyLevel':1},
-				   {'level':'huc_8','fieldName':'HUC_8','match':'6','geographyLevel':2},
-				   {'level':'huc_12','fieldName':'HUC_12','match':'8','geographyLevel':3}]
+#need to add this to geography_levels.json to include catchments.
 #    {'level':'Catchment','fieldName':'GRIDCODE','match':'FIRST_HUC_12','geographyLevel':4}]
 
-
+#this needs to live in code because the json data is inserted
 chartTypes = [{'name':'baseline',
 			   'table':'NHDCat_comb_baseline',
 			   'fields_conversion':BaseLineData,
@@ -526,7 +130,6 @@ chartTypes = [{'name':'baseline',
 									['P_URBAN_uplift_norm','MEAN']
 								   ]}]
 
-# {'name':'uplift','table','NHDCat_comb_uplift'}
 
 
 if arcpy.Exists(transposed):
@@ -536,8 +139,6 @@ for chartType in chartTypes:
 	print 'Chart Type: ' + chartType['name']
 	chartTypeName = chartType['name']
 
-	#NHDCat_comb_baseline_Layer = "NHDCat_comb_baseline"
-	#NHDCat_comb_uplift_Layer = "NHDCat_comb_uplift"
 
 	inputFC =  os.path.join(path, chartType['table'])
 
@@ -545,7 +146,7 @@ for chartType in chartTypes:
 	fields = arcpy.ListFields(  os.path.join(path, inputFC)  )
 
 	#get json data for how to deal with each field
-	input_dict = json.loads(chartType['fields_conversion'])
+	input_dict = chartType['fields_conversion']
 
 	#check of huc 6 exists if not add and calculae field
 	# or is it better to not mutate the data and create a copy... and delete copy after processings

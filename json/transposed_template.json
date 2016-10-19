@@ -1,0 +1,49 @@
+[{
+	"fieldname": "ID",
+	"fieldType": "TEXT",
+	"Length": "150"
+}, {
+	"fieldname": "geography_level",
+	"fieldType": "LONG",
+	"Length": ""
+}, {
+	"fieldname": "geography_match_id",
+	"fieldType": "TEXT",
+	"Length": "150"
+}, {
+	"fieldname": "geography_label",
+	"fieldType": "TEXT",
+	"Length": "150"
+}, {
+	"fieldname": "chart_id",
+	"fieldType": "LONG",
+	"Length": ""
+}, {
+	"fieldname": "chart_matchid",
+	"fieldType": "LONG",
+	"Length": ""
+}, {
+	"fieldname": "chart_level",
+	"fieldType": "LONG",
+	"Length": ""
+}, {
+	"fieldname": "chart_label",
+	"fieldType": "TEXT",
+	"Length": "255"
+}, {
+	"fieldname": "chart_value",
+	"fieldType": "TEXT",
+	"Length": "255"
+}, {
+	"fieldname": "chart_description",
+	"fieldType": "TEXT",
+	"Length": "150"
+}, {
+	"fieldname": "chart_type",
+	"fieldType": "TEXT",
+	"Length": "150"
+}, {
+	"fieldname": "chart_level_label",
+	"fieldType": "TEXT",
+	"Length": "150"
+}]

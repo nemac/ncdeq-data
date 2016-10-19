@@ -1,0 +1,129 @@
+[{
+	"fieldName": "N_CMAQ2002KG_base_norm",
+	"chartDescription": "Nitrogen Source Atmosphere",
+	"chartType": "BASELINE",
+	"chartLabel": "Nitrogen Atmosphere",
+	"chartLevel": "4",
+	"chartId": "16",
+	"chartMatchId": "6"
+}, {
+	"fieldName": "N_AG_base_norm",
+	"chartDescription": "Nitrogen Source Agriculture",
+	"chartType": "BASELINE",
+	"chartLabel": "Nitrogen Agriculture",
+	"chartLevel": "4",
+	"chartId": "15",
+	"chartMatchId": "6"
+}, {
+	"fieldName": "N_URBAN_base_norm",
+	"chartDescription": "Nitrogen Source Urban",
+	"chartType": "BASELINE",
+	"chartLabel": "Nitrogen Urban",
+	"chartLevel": "4",
+	"chartId": "14",
+	"chartMatchId": "6"
+}, {
+	"fieldName": "P_URBAN_base_norm",
+	"chartDescription": "Phosphorus Source Urban",
+	"chartType": "BASELINE",
+	"chartLabel": "Phosphorus Urban",
+	"chartLevel": "4",
+	"chartId": "13",
+	"chartMatchId": "5"
+}, {
+	"fieldName": "P_AG_base_norm",
+	"chartDescription": "Phosphorus Source Agriculture",
+	"chartType": "BASELINE",
+	"chartLabel": "Phosphorus Agriculture",
+	"chartLevel": "4",
+	"chartId": "12",
+	"chartMatchId": "5"
+}, {
+	"fieldName": "q2yr_base_norm",
+	"chartDescription": "Hydrology 2 year peak flow",
+	"chartType": "BASELINE",
+	"chartLabel": "2 year peak",
+	"chartLevel": "3",
+	"chartId": "11",
+	"chartMatchId": "3"
+}, {
+	"fieldName": "q10yr_base_norm",
+	"chartDescription": "Hydrology 50 year peak flow",
+	"chartType": "BASELINE",
+	"chartLabel": "50 year peak",
+	"chartLevel": "3",
+	"chartId": "10",
+	"chartMatchId": "3"
+}, {
+	"fieldName": "q100yr_base_norm",
+	"chartDescription": "Hydrology 100 year peak flow",
+	"chartType": "BASELINE",
+	"chartLabel": "100 year peak",
+	"chartLevel": "3",
+	"chartId": "8",
+	"chartMatchId": "3"
+}, {
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "BASELINE",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "3",
+	"chartId": "7",
+	"chartMatchId": "2"
+}, {
+	"fieldName": "N_total_base_norm",
+	"chartDescription": "Nitrogen Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Nitrogen",
+	"chartLevel": "3",
+	"chartId": "6",
+	"chartMatchId": "4"
+}, {
+	"fieldName": "P_total_base_norm",
+	"chartDescription": "Phosphorus Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Phosphorus",
+	"chartLevel": "3",
+	"chartId": "5",
+	"chartMatchId": "4"
+}, {
+	"fieldName": "WQ_base_norm",
+	"chartDescription": "Total Water Quality Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Water Quality",
+	"chartLevel": "2",
+	"chartId": "4",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "Hydro_base_norm",
+	"chartDescription": "Total Hydrology Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Hydrology",
+	"chartLevel": "2",
+	"chartId": "3",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "Hab_base_norm",
+	"chartDescription": "Total Habitat Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Habitat",
+	"chartLevel": "2",
+	"chartId": "2",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "ALL_base",
+	"chartDescription": "Total Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Total",
+	"chartLevel": "1",
+	"chartId": "1",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "HUC_12",
+	"chartDescription": "",
+	"chartType": "",
+	"chartLabel": "",
+	"chartLevel": "",
+	"chartId": "0",
+	"chartMatchId": "0"
+}]

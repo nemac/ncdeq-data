@@ -1,0 +1,16 @@
+[{
+	"level": "huc_6",
+	"fieldName": "HUC_6",
+	"match": "6",
+	"geographyLevel": 1
+}, {
+	"level": "huc_8",
+	"fieldName": "HUC_8",
+	"match": "6",
+	"geographyLevel": 2
+}, {
+	"level": "huc_12",
+	"fieldName": "HUC_12",
+	"match": "8",
+	"geographyLevel": 3
+}]
