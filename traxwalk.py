@@ -10,6 +10,7 @@
 
 import arcpy
 import os
+import json
 
 def FieldExist(featureclass, fieldname):
 	fieldList = arcpy.ListFields(featureclass, fieldname)
