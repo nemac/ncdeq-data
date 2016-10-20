@@ -112,6 +112,23 @@ chartTypes = [{'name':'baseline',
 									['N_CMAQ2002KG_base_norm',aggreatate_type],
 									['P_AG_base_norm',aggreatate_type],
 									['P_URBAN_base_norm',aggreatate_type]
+								   ],
+			   'fields_calc': [['ALL_base', area_AreaSqKM],
+			   						['Hab_base_norm',area_AreaShape],
+			   						['Hydro_base_norm', area_AreaSqKM],
+			   						['WQ_base_norm', area_AreaSqKM],
+									['MeanLikelihood_norm',area_AreaShape],
+									['q2yr_base_norm',area_AreaSqKM],
+									['q10yr_base_norm',area_AreaSqKM],
+									['q50yr_base_norm',area_AreaSqKM],
+									['q100yr_base_norm',area_AreaSqKM],
+									['N_total_base_norm',area_AreaSqKM],
+									['P_total_base_norm',area_AreaSqKM],
+									['N_AG_base_norm',area_AreaSqKM],
+									['N_URBAN_base_norm',area_AreaSqKM],
+									['N_CMAQ2002KG_base_norm',area_AreaSqKM],
+									['P_AG_base_norm',area_AreaSqKM],
+									['P_URBAN_base_norm',area_AreaSqKM]
 								   ]},
 				{'name':'uplift',
 			   'table':'NHDCat_comb_uplift',
@@ -139,8 +156,28 @@ chartTypes = [{'name':'baseline',
 									['N_CMAQ2002KG_uplift_norm',aggreatate_type],
 									['P_AG_uplift_norm',aggreatate_type],
 									['P_URBAN_uplift_norm',aggreatate_type]
-								   ]}]
-
+								   ],
+		   'fields_calc': [['ALL_uplift', area_AreaSqKM],
+                                ['Hab_uplift_WetlandsBMPs', area_AreaShape],
+                                ['Hab_uplift_AdvConv',area_AreaShape],
+                                ['Hab_uplift_AqCon', area_AreaShape],
+                                ['Hab_uplift_Restoration',area_AreaShape],
+                                ['Hab_uplift_norm',area_AreaShape],
+                                ['Hydro_uplift_norm', area_AreaSqKM],
+                                ['WQ_uplift_norm', area_AreaSqKM],
+                                ['MeanLikelihood_norm',area_AreaShape],
+                                ['q2yr_uplift_norm',area_AreaSqKM],
+                                ['q10yr_uplift_norm',area_AreaSqKM],
+                                ['q50yr_uplift_norm',area_AreaSqKM],
+                                ['q100yr_uplift_norm',area_AreaSqKM],
+                                ['N_total_uplift_norm',area_AreaSqKM],
+                                ['P_total_uplift_norm',area_AreaSqKM],
+                                ['N_AG_uplift_norm',area_AreaSqKM],
+                                ['N_URBAN_uplift_norm',area_AreaSqKM],
+                                ['N_CMAQ2002KG_uplift_norm',area_AreaSqKM],
+                                ['P_AG_uplift_norm',area_AreaSqKM],
+                                ['P_URBAN_uplift_norm',area_AreaSqKM]
+                               ]}]
 
 #empty table of exists
 if arcpy.Exists(transposed):
@@ -199,22 +236,22 @@ for chartType in chartTypes:
 		if not FieldExist(temp_inputFC,'HUC_6'):
 			#add field
 			arcpy.AddField_management(temp_inputFC, "HUC_6", "TEXT", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
-
 			#calc HUC_6
 			arcpy.CalculateField_management(temp_inputFC, "HUC_6", "!HUC_12![0:6]", "PYTHON", "")
 
+		#dissolve on geographyLevels
+		Calc_Fields = chartType['fields_calc']
+
         # #attempt at weighted aveage first part calulate score * area
-		for fld in StatisticsFields:
-			if (fld[0] != 'AreaSqKM' and fld[1] == 'SUM') and  (fld[0] != 'Shape_Area' and fld[1] == 'SUM'):
-				arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !AreaSqKM!", "PYTHON", "")
+		for fld in Calc_Fields:
+			arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !" +  fld[1] + "!", "PYTHON", "")
 
         #dissolve based on geography level (huc12,huc8,huc6)
 		arcpy.Dissolve_management(temp_inputFC, temp_dissolve, currentGeographyLevel, StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
 
         #attempt at weighted avg second part dissolve and calulate the sum of all the weghted scores (area*score) dived by the sum of areas
-		for fld in StatisticsFields:
-			if (fld[0] != 'AreaSqKM' and fld[1] == 'SUM') and  (fld[0] != 'Shape_Area' and fld[1] == 'SUM'):
-				arcpy.CalculateField_management(temp_dissolve,  fld[1] + "_" + fld[0], "!" + fld[1] + "_" + fld[0] + "!/!SUM_AreaSqKM!", "PYTHON", "")
+		for fld in Calc_Fields:
+			arcpy.CalculateField_management(temp_dissolve,  aggreatate_type + "_" + fld[0], "!" + aggreatate_type + "_" + fld[0] + "!/!" + aggreatate_type + "_" +  fld[1] + "!", "PYTHON", "")
 
 
 		#iterate fields and to send dissolve
@@ -235,19 +272,20 @@ for chartType in chartTypes:
 				if arcpy.Exists(temp_transposed):
 					arcpy.Delete_management(temp_transposed)
 
+                #normalized data as in database normalization
 				arcpy.TransposeFields_management(temp_dissolve, aggreatate_type + "_" + transposeField + " " + aggreatate_type + "_" + transposeField, temp_transposed, "chart_label", "chart_value", currentGeographyLevel + ";FIRST_HUC_12")
 
 				print '  ' + transposeField
 				for f in output_dict[0]:
 					print '    ' + f
 
+                #add fields from template to the normalized table if they do not exist
 				for field in transposedTemplate:
 					fieldName = field['fieldname']
 					fieldType = field['fieldType']
 					fieldLength = field['Length']
 					if not FieldExist(temp_transposed,fieldName):
 						arcpy.AddField_management(temp_transposed, fieldName, fieldType, "", "", fieldLength, "", "NULLABLE", "NON_REQUIRED", "")
-
 
 				# Process: calculate_geography_level
 				arcpy.CalculateField_management(temp_transposed, "geography_level",   geog['geographyLevel'], "PYTHON", "")
