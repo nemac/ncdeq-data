@@ -1,0 +1,73 @@
+[{
+	"fieldName": "NLCD9",
+	"chartDescription": "NLCD Wetlands",
+	"chartType": "NLCD",
+	"chartLabel": "Wetlands",
+	"chartLevel": "2",
+	"chartId": "9",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "NLCD8",
+	"chartDescription": "NLCD Planted/Cultivated",
+	"chartType": "NLCD",
+	"chartLabel": "Planted/Cultivated",
+	"chartLevel": "2",
+	"chartId": "8",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "NLCD7",
+	"chartDescription": "NLCD Herbaceous",
+	"chartType": "NLCD",
+	"chartLabel": "Herbaceous",
+	"chartLevel": "2",
+	"chartId": "7",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "NLCD5",
+	"chartDescription": "NLCD Shrubland",
+	"chartType": "NLCD",
+	"chartLabel": "Shrubland",
+	"chartLevel": "2",
+	"chartId": "6",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "NLCD4",
+	"chartDescription": "NLCD Forest",
+	"chartType": "NLCD",
+	"chartLabel": "Forest",
+	"chartLevel": "2",
+	"chartId": "5",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "NLCD3",
+	"chartDescription": "NLCD Barren",
+	"chartType": "NLCD",
+	"chartLabel": "Barren",
+	"chartLevel": "2",
+	"chartId": "4",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "NLCD2",
+	"chartDescription": "NLCD Water",
+	"chartType": "NLCD",
+	"chartLabel": "Developed",
+	"chartLevel": "2",
+	"chartId": "3",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "NLCD1",
+	"chartDescription": "NLCD Water",
+	"chartType": "NLCD",
+	"chartLabel": "Water",
+	"chartLevel": "2",
+	"chartId": "2",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "ALL_uplift",
+	"chartDescription": "Total Uplift",
+	"chartType": "NLCD",
+	"chartLabel": "Total",
+	"chartLevel": "2",
+	"chartId": "1",
+	"chartMatchId": "1"
+}]

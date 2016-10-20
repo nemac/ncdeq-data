@@ -43,18 +43,20 @@ with open('json/transposed_template.json') as data_file:
 
 outGDBFull =  os.path.join(outPathGDB, outGDB)
 
+#if the ncdeq_normailized data exists delete and so we can create a new version
 if arcpy.Exists(outGDBFull):
 	arcpy.Delete_management(outGDBFull)
 
-
+#create a new ncdeq_normailized geodatabase
 arcpy.CreateFileGDB_management (outPathGDB, outGDB, "10.0")
 
 #result data
 transposed =  os.path.join(outGDBFull, 'ncdeq_normailized')
 
+#create a new normalized table
 arcpy.CreateTable_management(outGDBFull,'ncdeq_normailized')
 
-
+#create the new fiels from the template
 for field in transposedTemplate:
 	fieldName = field['fieldname']
 	fieldType = field['fieldType']
@@ -82,56 +84,58 @@ with open('json/geography_levels.json') as data_file:
 #need to add this to geography_levels.json to include catchments.
 #    {'level':'Catchment','fieldName':'GRIDCODE','match':'FIRST_HUC_12','geographyLevel':4}]
 
+aggreatate_type = "MEAN"
+
 #this needs to live in code because the json data is inserted
 chartTypes = [{'name':'baseline',
 			   'table':'NHDCat_comb_baseline',
 			   'fields_conversion':BaseLineData,
 			   'fields_dissovled': [['HUC_12','FIRST'],
-			   						['ALL_base', 'MEAN'],
-			   						['Hab_base_norm','MEAN'],
-			   						['Hydro_base_norm', 'MEAN'],
-			   						['WQ_base_norm', 'MEAN'],
-									['MeanLikelihood_norm','MEAN'],
-									['q2yr_base_norm','MEAN'],
-									['q10yr_base_norm','MEAN'],
-									['q50yr_base_norm','MEAN'],
-									['q100yr_base_norm','MEAN'],
-									['N_total_base_norm','MEAN'],
-									['P_total_base_norm','MEAN'],
-									['N_AG_base_norm','MEAN'],
-									['N_URBAN_base_norm','MEAN'],
-									['N_CMAQ2002KG_base_norm','MEAN'],
-									['P_AG_base_norm','MEAN'],
-									['P_URBAN_base_norm','MEAN']
+			   						['ALL_base', aggreatate_type],
+			   						['Hab_base_norm',aggreatate_type],
+			   						['Hydro_base_norm', aggreatate_type],
+			   						['WQ_base_norm', aggreatate_type],
+									['MeanLikelihood_norm',aggreatate_type],
+									['q2yr_base_norm',aggreatate_type],
+									['q10yr_base_norm',aggreatate_type],
+									['q50yr_base_norm',aggreatate_type],
+									['q100yr_base_norm',aggreatate_type],
+									['N_total_base_norm',aggreatate_type],
+									['P_total_base_norm',aggreatate_type],
+									['N_AG_base_norm',aggreatate_type],
+									['N_URBAN_base_norm',aggreatate_type],
+									['N_CMAQ2002KG_base_norm',aggreatate_type],
+									['P_AG_base_norm',aggreatate_type],
+									['P_URBAN_base_norm',aggreatate_type]
 								   ]},
 				{'name':'uplift',
 			   'table':'NHDCat_comb_uplift',
 			   'fields_conversion':uplift_Data,
 			   'fields_dissovled': [['HUC_12','FIRST'],
-			   						['ALL_uplift', 'MEAN'],
-			   						['Hab_uplift_WetlandsBMPs', 'MEAN'],
-			   						['Hab_uplift_AdvConv','MEAN'],
-			   						['Hab_uplift_AqCon', 'MEAN'],
-			   						['Hab_uplift_Restoration','MEAN'],
-			   						['Hab_uplift_norm','MEAN'],
-									['Hydro_uplift_norm', 'MEAN'],
-									['WQ_uplift_norm', 'MEAN'],
-									['MeanLikelihood_norm','MEAN'],
-									['q2yr_uplift_norm','MEAN'],
-									['q10yr_uplift_norm','MEAN'],
-									['q50yr_uplift_norm','MEAN'],
-									['q100yr_uplift_norm','MEAN'],
-									['N_total_uplift_norm','MEAN'],
-									['P_total_uplift_norm','MEAN'],
-									['N_AG_uplift_norm','MEAN'],
-									['N_URBAN_uplift_norm','MEAN'],
-									['N_CMAQ2002KG_uplift_norm','MEAN'],
-									['P_AG_uplift_norm','MEAN'],
-									['P_URBAN_uplift_norm','MEAN']
+			   						['ALL_uplift', aggreatate_type],
+			   						['Hab_uplift_WetlandsBMPs', aggreatate_type],
+			   						['Hab_uplift_AdvConv',aggreatate_type],
+			   						['Hab_uplift_AqCon', aggreatate_type],
+			   						['Hab_uplift_Restoration',aggreatate_type],
+			   						['Hab_uplift_norm',aggreatate_type],
+									['Hydro_uplift_norm', aggreatate_type],
+									['WQ_uplift_norm', aggreatate_type],
+									['MeanLikelihood_norm',aggreatate_type],
+									['q2yr_uplift_norm',aggreatate_type],
+									['q10yr_uplift_norm',aggreatate_type],
+									['q50yr_uplift_norm',aggreatate_type],
+									['q100yr_uplift_norm',aggreatate_type],
+									['N_total_uplift_norm',aggreatate_type],
+									['P_total_uplift_norm',aggreatate_type],
+									['N_AG_uplift_norm',aggreatate_type],
+									['N_URBAN_uplift_norm',aggreatate_type],
+									['N_CMAQ2002KG_uplift_norm',aggreatate_type],
+									['P_AG_uplift_norm',aggreatate_type],
+									['P_URBAN_uplift_norm',aggreatate_type]
 								   ]}]
 
 
-
+#empty table of exists
 if arcpy.Exists(transposed):
 	arcpy.DeleteRows_management(transposed)
 
@@ -173,7 +177,6 @@ for chartType in chartTypes:
 		#dissolve on geographyLevels
 		StatisticsFields = chartType['fields_dissovled']
 		arcpy.Dissolve_management(inputFC, temp_dissolve, currentGeographyLevel, StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
-		#"HUC_12 FIRST;ALL_base MEAN;Hab_base_norm MEAN;Hydro_base_norm MEAN;WQ_base_norm MEAN;MeanLikelihood_norm MEAN;q2yr_base_norm MEAN;q10yr_base_norm MEAN;q50yr_base_norm MEAN;q100yr_base_norm MEAN;N_total_base_norm MEAN;P_total_base_norm MEAN;N_AG_base_norm MEAN;N_URBAN_base_norm MEAN;N_CMAQ2002KG_base_norm MEAN;P_AG_base_norm MEAN;P_URBAN_base_norm MEAN", "MULTI_PART", "DISSOLVE_LINES")
 
 		#iterate fields and to send dissolve
 		for field in fields:
@@ -193,7 +196,7 @@ for chartType in chartTypes:
 				if arcpy.Exists(temp_transposed):
 					arcpy.Delete_management(temp_transposed)
 
-				arcpy.TransposeFields_management(temp_dissolve, "MEAN_" + transposeField +" MEAN_" + transposeField, temp_transposed, "chart_label", "chart_value", currentGeographyLevel + ";FIRST_HUC_12")
+				arcpy.TransposeFields_management(temp_dissolve, aggreatate_type + "_" + transposeField + " " + aggreatate_type + "_" + transposeField, temp_transposed, "chart_label", "chart_value", currentGeographyLevel + ";FIRST_HUC_12")
 
 				print '  ' + transposeField
 				for f in output_dict[0]:
@@ -252,9 +255,9 @@ for chartType in chartTypes:
 					deleteFields.append('FIRST_HUC_12')
 					t = arcpy.DeleteField_management(temp_transposed, deleteFields)
 
-				if FieldExist(temp_dissolve, "MEAN_" + transposeField):
+				if FieldExist(temp_dissolve, aggreatate_type + "_" + transposeField):
 					deleteFields =[]
-					deleteFields.append( "MEAN_" + transposeField)
+					deleteFields.append( aggreatate_type + "_" + transposeField)
 					arcpy.DeleteField_management(temp_dissolve, deleteFields)
 
 				#append to transpose

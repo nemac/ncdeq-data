@@ -68,20 +68,22 @@ def FieldExist(featureclass, fieldname):
 with open('json/geography_levels_tra.json') as data_file:
     geographyLevels = json.load(data_file)
 
+aggreatate_type = "MEAN"
+
 chartTypes = [{'name':'TRA',
 			   'table':'TRA',
 			   'fields_conversion':tra_data,
-			   'fields_dissovled': [['ALL_uplift', 'MEAN'],
-			   						['Hab_uplift_WetlandsBMPs', 'MEAN'],
-			   						['Hab_uplift_AvdConv','MEAN'],
-			   						['Hab_uplift_AqCon', 'MEAN'],
-			   						['Hab_uplift_Restoration','MEAN'],
-			   						['Hab_uplift_norm','MEAN'],
-									['Hydro_uplift_norm', 'MEAN'],
-									['WQ_uplift_norm', 'MEAN']]
+			   'fields_dissovled': [['ALL_uplift', aggreatate_type],
+			   						['Hab_uplift_WetlandsBMPs', aggreatate_type],
+			   						['Hab_uplift_AvdConv',aggreatate_type],
+			   						['Hab_uplift_AqCon', aggreatate_type],
+			   						['Hab_uplift_Restoration',aggreatate_type],
+			   						['Hab_uplift_norm',aggreatate_type],
+									['Hydro_uplift_norm', aggreatate_type],
+									['WQ_uplift_norm', aggreatate_type]]
 				}]
 
-
+#walk the chart types object and dissolve and transpose (normalize) the data
 for chartType in chartTypes:
 	print 'Chart Type: ' + chartType['name']
 	chartTypeName = chartType['name']
@@ -110,7 +112,6 @@ for chartType in chartTypes:
 		#dissolve on geographyLevels
 		StatisticsFields = chartType['fields_dissovled']
 		arcpy.Dissolve_management(inputFC, temp_dissolve, geog['fieldName'], StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
-		#"HUC_12 FIRST;ALL_base MEAN;Hab_base_norm MEAN;Hydro_base_norm MEAN;WQ_base_norm MEAN;MeanLikelihood_norm MEAN;q2yr_base_norm MEAN;q10yr_base_norm MEAN;q50yr_base_norm MEAN;q100yr_base_norm MEAN;N_total_base_norm MEAN;P_total_base_norm MEAN;N_AG_base_norm MEAN;N_URBAN_base_norm MEAN;N_CMAQ2002KG_base_norm MEAN;P_AG_base_norm MEAN;P_URBAN_base_norm MEAN", "MULTI_PART", "DISSOLVE_LINES")
 
 		#iterate fields and to send dissolve
 		for field in fields:
@@ -129,7 +130,7 @@ for chartType in chartTypes:
 				if arcpy.Exists(temp_transposed):
 					arcpy.Delete_management(temp_transposed)
 
-				arcpy.TransposeFields_management(temp_dissolve, "MEAN_" + transposeField +" MEAN_" + transposeField, temp_transposed, "chart_label", "chart_value",  geog['fieldName'])
+				arcpy.TransposeFields_management(temp_dissolve, aggreatate_type + "_" + transposeField + " " + aggreatate_type + "_" + transposeField, temp_transposed, "chart_label", "chart_value", currentGeographyLevel + ";FIRST_HUC_12")
 
 				print '  ' + transposeField
 				for f in output_dict[0]:
@@ -194,9 +195,9 @@ for chartType in chartTypes:
 					deleteFields.append('FIRST_HUC_12')
 					t = arcpy.DeleteField_management(temp_transposed, deleteFields)
 
-				if FieldExist(temp_dissolve, "MEAN_" + transposeField):
+				if FieldExist(temp_dissolve, aggreatate_type + "_" + transposeField):
 					deleteFields =[]
-					deleteFields.append( "MEAN_" + transposeField)
+					deleteFields.append( aggreatate_type + "_" + transposeField)
 					arcpy.DeleteField_management(temp_dissolve, deleteFields)
 
 				#append to transpose
