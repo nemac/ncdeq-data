@@ -153,18 +153,8 @@ for chartType in chartTypes:
     #source feature layer
 	inputFC =  os.path.join(path, chartType['table'])
 
-    #temp feature layer to calcualted weighted area averages
-	temp_inputFC =  os.path.join(path, chartType['table'] + '_temp')
-
-	#if feature class exists delete
-	if arcpy.Exists(temp_inputFC):
-		arcpy.Delete_management(temp_inputFC)
-
-    #copy features from existing table to temp table we will delete it later
-	arcpy.CopyFeatures_management(inputFC, temp_inputFC)
-
 	#get fields in input data
-	fields = arcpy.ListFields(  os.path.join(path, temp_inputFC)  )
+	fields = arcpy.ListFields(  os.path.join(path, inputFC)  )
 
 	#get json data for how to deal with each field
 	input_dict = chartType['fields_conversion']
@@ -173,23 +163,19 @@ for chartType in chartTypes:
 	if arcpy.Exists(temp_dissolve):
 		arcpy.Delete_management(temp_dissolve)
 
-	#check of huc 6 exists if not add and calculae field
-	# or is it better to not mutate the data and create a copy... and delete copy after processings
-	if not FieldExist(temp_inputFC,'HUC_6'):
-		#add field
-		arcpy.AddField_management(temp_inputFC, "HUC_6", "TEXT", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
-
-		#calc HUC_6
-		arcpy.CalculateField_management(temp_inputFC, "HUC_6", "!HUC_12![0:6]", "PYTHON", "")
-
 
 	for geog in geographyLevels:
 		currentGeographyLevel = geog['fieldName']
 		print 'Dissolve: ' + currentGeographyLevel
 		print '  ' + geog['level']
 
+        #setup temp dissolve table, one dissovled table for each field
+        #   this creates one record/row for each topic or chart type
 		temp_dissolve = os.path.join(outGDBFull, geog['level'])
 	 	dissolve = os.path.join(outGDBFull, 'dissolve')
+
+		#temp feature layer to calcualted weighted area averages
+		temp_inputFC =  os.path.join(path, chartType['table'] + '_temp')
 
 		#if feature class exists delete
 		if arcpy.Exists(temp_dissolve):
@@ -198,10 +184,29 @@ for chartType in chartTypes:
 		#dissolve on geographyLevels
 		StatisticsFields = chartType['fields_dissovled']
 
+		#temp feature layer to calcualted weighted area averages
+		temp_inputFC =  os.path.join(path, chartType['table'] + '_temp')
+
+		#if feature class exists delete
+		if arcpy.Exists(temp_inputFC):
+			arcpy.Delete_management(temp_inputFC)
+
+		#copy features from existing table to temp table we will delete it later
+		arcpy.CopyFeatures_management(inputFC, temp_inputFC)
+
+		#check of huc 6 exists if not add and calculae field
+		# or is it better to not mutate the data and create a copy... and delete copy after processings
+		if not FieldExist(temp_inputFC,'HUC_6'):
+			#add field
+			arcpy.AddField_management(temp_inputFC, "HUC_6", "TEXT", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+
+			#calc HUC_6
+			arcpy.CalculateField_management(temp_inputFC, "HUC_6", "!HUC_12![0:6]", "PYTHON", "")
+
         # #attempt at weighted aveage first part calulate score * area
-		# for fld in StatisticsFields:
-		# 	if (fld[0] != 'AreaSqKM' and fld[1] == 'SUM') and  (fld[0] != 'Shape_Area' and fld[1] == 'SUM'):
-		# 		arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !AreaSqKM!", "PYTHON", "")
+		for fld in StatisticsFields:
+			if (fld[0] != 'AreaSqKM' and fld[1] == 'SUM') and  (fld[0] != 'Shape_Area' and fld[1] == 'SUM'):
+				arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !AreaSqKM!", "PYTHON", "")
 
         #dissolve based on geography level (huc12,huc8,huc6)
 		arcpy.Dissolve_management(temp_inputFC, temp_dissolve, currentGeographyLevel, StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
