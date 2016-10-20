@@ -91,6 +91,7 @@ for chartType in chartTypes:
     print 'Chart Type: ' + chartType['name']
     chartTypeName = chartType['name']
 
+    #get input table
     inputFC =  os.path.join(path, chartType['table'])
 
     #get fields in input data
@@ -109,6 +110,7 @@ for chartType in chartTypes:
 		#calc HUC_6
         arcpy.CalculateField_management(inputFC, "HUC_6", "!HUC_12![0:6]", "PYTHON", "")
 
+    #walk the geograpy levels and dissolve each level
     for geog in geographyLevels:
         currentGeographyLevel = geog['fieldName']
         print 'Dissolve: ' + currentGeographyLevel
@@ -150,6 +152,7 @@ for chartType in chartTypes:
                 for f in output_dict[0]:
                     print '    ' + f
 
+                #go through template and add missing fields
                 for field in transposedTemplate:
                     fieldName = field['fieldname']
                     fieldType = field['fieldType']
@@ -166,6 +169,7 @@ for chartType in chartTypes:
                 else:
                     arcpy.CalculateField_management(temp_transposed, "geography_match_id", "!"+currentGeographyLevel+"![0:"+ geog['match']+"]", "PYTHON", "")
 
+                #process: chart Description
                 arcpy.CalculateField_management(temp_transposed, "chart_description", "'" + output_dict[0]['chartDescription'] + "'", "PYTHON", "")
 
                 # Process: Calculate_chart_type
@@ -191,11 +195,11 @@ for chartType in chartTypes:
                 #round to two decimeals
                 arcpy.CalculateField_management(temp_transposed, "chart_value", "round(float(!chart_value!),8)", "PYTHON", "")
 
+                #delete field for curent geog name i.e huc12 should be id now
                 if FieldExist(inputFC,currentGeographyLevel):
                     deleteFields = []
                     deleteFields.append(currentGeographyLevel)
                     t = arcpy.DeleteField_management(temp_transposed, deleteFields)
-
 
                 #remove huc12
                 if FieldExist(temp_transposed,'FIRST_HUC_12'):
@@ -203,6 +207,7 @@ for chartType in chartTypes:
                     deleteFields.append('FIRST_HUC_12')
                     t = arcpy.DeleteField_management(temp_transposed, deleteFields)
 
+                #remove current agregated fields
                 if FieldExist(temp_dissolve, aggreatate_type + "_" + transposeField):
                     deleteFields =[]
                     deleteFields.append( aggreatate_type + "_" + transposeField)

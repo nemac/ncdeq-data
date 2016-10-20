@@ -113,6 +113,11 @@ for chartType in chartTypes:
 		StatisticsFields = chartType['fields_dissovled']
 		arcpy.Dissolve_management(inputFC, temp_dissolve, geog['fieldName'], StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
 
+        #attempt at weighted avg
+		for fld in StatisticsFields:
+			if fld[0] != 'AreaSqKM' and fld[1] == 'SUM':
+				arcpy.CalculateField_management(temp_dissolve,  fld[1] + "_" + fld[0], "!" + fld[1] + "_" + fld[0] + "!/!SUM_AreaSqKM!", "PYTHON", "")
+
 		#iterate fields and to send dissolve
 		for field in fields:
 
@@ -130,7 +135,8 @@ for chartType in chartTypes:
 				if arcpy.Exists(temp_transposed):
 					arcpy.Delete_management(temp_transposed)
 
-				arcpy.TransposeFields_management(temp_dissolve, aggreatate_type + "_" + transposeField + " " + aggreatate_type + "_" + transposeField, temp_transposed, "chart_label", "chart_value", currentGeographyLevel + ";FIRST_HUC_12")
+                #dissovle the geography level
+				arcpy.TransposeFields_management(temp_dissolve, aggreatate_type + "_" + transposeField + " " + aggreatate_type +"_" + transposeField, temp_transposed, "chart_label", "chart_value",  geog['fieldName'])
 
 				print '  ' + transposeField
 				for f in output_dict[0]:

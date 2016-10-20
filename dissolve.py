@@ -84,13 +84,14 @@ with open('json/geography_levels.json') as data_file:
 #need to add this to geography_levels.json to include catchments.
 #    {'level':'Catchment','fieldName':'GRIDCODE','match':'FIRST_HUC_12','geographyLevel':4}]
 
-aggreatate_type = "MEAN"
+aggreatate_type = "SUM"
 
 #this needs to live in code because the json data is inserted
 chartTypes = [{'name':'baseline',
 			   'table':'NHDCat_comb_baseline',
 			   'fields_conversion':BaseLineData,
 			   'fields_dissovled': [['HUC_12','FIRST'],
+                                    ['AreaSqKM', aggreatate_type],
 			   						['ALL_base', aggreatate_type],
 			   						['Hab_base_norm',aggreatate_type],
 			   						['Hydro_base_norm', aggreatate_type],
@@ -112,6 +113,7 @@ chartTypes = [{'name':'baseline',
 			   'table':'NHDCat_comb_uplift',
 			   'fields_conversion':uplift_Data,
 			   'fields_dissovled': [['HUC_12','FIRST'],
+                                    ['AreaSqKM', aggreatate_type],
 			   						['ALL_uplift', aggreatate_type],
 			   						['Hab_uplift_WetlandsBMPs', aggreatate_type],
 			   						['Hab_uplift_AdvConv',aggreatate_type],
@@ -178,6 +180,11 @@ for chartType in chartTypes:
 		StatisticsFields = chartType['fields_dissovled']
 		arcpy.Dissolve_management(inputFC, temp_dissolve, currentGeographyLevel, StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
 
+        #attempt at weighted avg
+		for fld in StatisticsFields:
+			if fld[0] != 'AreaSqKM' and fld[1] == 'SUM':
+				arcpy.CalculateField_management(temp_dissolve,  fld[1] + "_" + fld[0], "!" + fld[1] + "_" + fld[0] + "!/!SUM_AreaSqKM!", "PYTHON", "")
+
 		#iterate fields and to send dissolve
 		for field in fields:
 
@@ -219,6 +226,7 @@ for chartType in chartTypes:
 				else:
 					arcpy.CalculateField_management(temp_transposed, "geography_match_id", "!"+currentGeographyLevel+"![0:"+ geog['match']+"]", "PYTHON", "")
 
+				#process: chart Description
 				arcpy.CalculateField_management(temp_transposed, "chart_description", "'" + output_dict[0]['chartDescription'] + "'", "PYTHON", "")
 
 				# Process: Calculate_chart_type
