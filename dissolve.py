@@ -88,12 +88,14 @@ aggreatate_type = "SUM"
 area_AreaSqKM = 'AreaSqKM'
 area_AreaShape = 'Shape_Area'
 
+
 #this needs to live in code because the json data is inserted
 chartTypes = [{'name':'baseline',
 			   'table':'NHDCat_comb_baseline',
 			   'fields_conversion':BaseLineData,
 			   'fields_dissovled': [['HUC_12','FIRST'],
                                     ['AreaSqKM', aggreatate_type],
+                                    ['Shape_Area', aggreatate_type],
 			   						['ALL_base', aggreatate_type],
 			   						['Hab_base_norm',aggreatate_type],
 			   						['Hydro_base_norm', aggreatate_type],
@@ -116,6 +118,7 @@ chartTypes = [{'name':'baseline',
 			   'fields_conversion':uplift_Data,
 			   'fields_dissovled': [['HUC_12','FIRST'],
                                     ['AreaSqKM', aggreatate_type],
+                                    ['Shape_Area', aggreatate_type],
 			   						['ALL_uplift', aggreatate_type],
 			   						['Hab_uplift_WetlandsBMPs', aggreatate_type],
 			   						['Hab_uplift_AdvConv',aggreatate_type],
@@ -151,7 +154,7 @@ for chartType in chartTypes:
 	inputFC =  os.path.join(path, chartType['table'])
 
     #temp feature layer to calcualted weighted area averages
-	temp_inputFC=  os.path.join(path, chartType['table'] + '_temp')
+	temp_inputFC =  os.path.join(path, chartType['table'] + '_temp')
 
 	#if feature class exists delete
 	if arcpy.Exists(temp_inputFC):
@@ -195,20 +198,19 @@ for chartType in chartTypes:
 		#dissolve on geographyLevels
 		StatisticsFields = chartType['fields_dissovled']
 
-        #attempt at weighted aveage first part calulate score * area
-		for fld in StatisticsFields:
-			if fld[0] != 'AreaSqKM' and fld[1] == 'SUM':
-				arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !AreaSqKM!", "PYTHON", "")
+        # #attempt at weighted aveage first part calulate score * area
+		# for fld in StatisticsFields:
+		# 	if (fld[0] != 'AreaSqKM' and fld[1] == 'SUM') and  (fld[0] != 'Shape_Area' and fld[1] == 'SUM'):
+		# 		arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !AreaSqKM!", "PYTHON", "")
 
-
+        #dissolve based on geography level (huc12,huc8,huc6)
 		arcpy.Dissolve_management(temp_inputFC, temp_dissolve, currentGeographyLevel, StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
 
         #attempt at weighted avg second part dissolve and calulate the sum of all the weghted scores (area*score) dived by the sum of areas
 		for fld in StatisticsFields:
-			if fld[0] != 'AreaSqKM' and fld[1] == 'SUM':
+			if (fld[0] != 'AreaSqKM' and fld[1] == 'SUM') and  (fld[0] != 'Shape_Area' and fld[1] == 'SUM'):
 				arcpy.CalculateField_management(temp_dissolve,  fld[1] + "_" + fld[0], "!" + fld[1] + "_" + fld[0] + "!/!SUM_AreaSqKM!", "PYTHON", "")
 
-        #calculate this differently for
 
 		#iterate fields and to send dissolve
 		for field in fields:
@@ -300,6 +302,7 @@ for chartType in chartTypes:
 				if arcpy.Exists(temp_transposed):
 					arcpy.Delete_management(temp_transposed)
 
+
 for geog in geographyLevels:
 	temp_dissolve = os.path.join(outGDBFull, geog['level'])
 
@@ -311,12 +314,20 @@ for geog in geographyLevels:
 		deleteFields.append('FIRST_HUC_12')
 		arcpy.DeleteField_management(temp_dissolve, deleteFields)
 
-#if huc_6 exists delete it
-if FieldExist(temp_inputFC,'HUC_6'):
-	deleteFields = []
-	deleteFields.append('HUC_6')
-	t = arcpy.DeleteField_management(temp_inputFC, deleteFields)
 
-#if temporary input feature class exists delete
-if arcpy.Exists(temp_inputFC):
-	arcpy.Delete_management(temp_inputFC)
+for chartType in chartTypes:
+	print 'Chart Type: ' + chartType['name']
+	chartTypeName = chartType['name']
+
+    #temp feature layer to calcualted weighted area averages
+	temp_inputFC =  os.path.join(path, chartType['table'] + '_temp')
+
+    #if huc_6 exists delete it
+	if FieldExist(temp_inputFC,'HUC_6'):
+		deleteFields = []
+		deleteFields.append('HUC_6')
+		t = arcpy.DeleteField_management(temp_inputFC, deleteFields)
+
+	#if feature class exists delete
+	if arcpy.Exists(temp_inputFC):
+		arcpy.Delete_management(temp_inputFC)
