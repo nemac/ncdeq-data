@@ -66,7 +66,7 @@ with open('json/geography_levels_nlcd.json') as data_file:
     geographyLevels = json.load(data_file)
 
 
-aggreatate_type = "SUM"
+aggreatate_type = "MEAN"
 
 #this needs to live in code because the json data is inserted
 chartTypes = [{'name':'NHDCatchments_NLCD',

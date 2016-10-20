@@ -85,6 +85,8 @@ with open('json/geography_levels.json') as data_file:
 #    {'level':'Catchment','fieldName':'GRIDCODE','match':'FIRST_HUC_12','geographyLevel':4}]
 
 aggreatate_type = "SUM"
+area_AreaSqKM = 'AreaSqKM'
+area_AreaShape = 'Shape_Area'
 
 #this needs to live in code because the json data is inserted
 chartTypes = [{'name':'baseline',
@@ -145,23 +147,37 @@ for chartType in chartTypes:
 	print 'Chart Type: ' + chartType['name']
 	chartTypeName = chartType['name']
 
-
+    #source feature layer
 	inputFC =  os.path.join(path, chartType['table'])
 
+    #temp feature layer to calcualted weighted area averages
+	temp_inputFC=  os.path.join(path, chartType['table'] + '_temp')
+
+	#if feature class exists delete
+	if arcpy.Exists(temp_inputFC):
+		arcpy.Delete_management(temp_inputFC)
+
+    #copy features from existing table to temp table we will delete it later
+	arcpy.CopyFeatures_management(inputFC, temp_inputFC)
+
 	#get fields in input data
-	fields = arcpy.ListFields(  os.path.join(path, inputFC)  )
+	fields = arcpy.ListFields(  os.path.join(path, temp_inputFC)  )
 
 	#get json data for how to deal with each field
 	input_dict = chartType['fields_conversion']
 
+	#if feature class exists delete
+	if arcpy.Exists(temp_dissolve):
+		arcpy.Delete_management(temp_dissolve)
+
 	#check of huc 6 exists if not add and calculae field
 	# or is it better to not mutate the data and create a copy... and delete copy after processings
-	if not FieldExist(inputFC,'HUC_6'):
+	if not FieldExist(temp_inputFC,'HUC_6'):
 		#add field
-		arcpy.AddField_management(inputFC, "HUC_6", "TEXT", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
+		arcpy.AddField_management(temp_inputFC, "HUC_6", "TEXT", "", "", "", "", "NULLABLE", "NON_REQUIRED", "")
 
 		#calc HUC_6
-		arcpy.CalculateField_management(inputFC, "HUC_6", "!HUC_12![0:6]", "PYTHON", "")
+		arcpy.CalculateField_management(temp_inputFC, "HUC_6", "!HUC_12![0:6]", "PYTHON", "")
 
 
 	for geog in geographyLevels:
@@ -178,12 +194,21 @@ for chartType in chartTypes:
 
 		#dissolve on geographyLevels
 		StatisticsFields = chartType['fields_dissovled']
-		arcpy.Dissolve_management(inputFC, temp_dissolve, currentGeographyLevel, StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
 
-        #attempt at weighted avg
+        #attempt at weighted aveage first part calulate score * area
+		for fld in StatisticsFields:
+			if fld[0] != 'AreaSqKM' and fld[1] == 'SUM':
+				arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !AreaSqKM!", "PYTHON", "")
+
+
+		arcpy.Dissolve_management(temp_inputFC, temp_dissolve, currentGeographyLevel, StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
+
+        #attempt at weighted avg second part dissolve and calulate the sum of all the weghted scores (area*score) dived by the sum of areas
 		for fld in StatisticsFields:
 			if fld[0] != 'AreaSqKM' and fld[1] == 'SUM':
 				arcpy.CalculateField_management(temp_dissolve,  fld[1] + "_" + fld[0], "!" + fld[1] + "_" + fld[0] + "!/!SUM_AreaSqKM!", "PYTHON", "")
+
+        #calculate this differently for
 
 		#iterate fields and to send dissolve
 		for field in fields:
@@ -252,7 +277,7 @@ for chartType in chartTypes:
 				#round to two decimealss
 				arcpy.CalculateField_management(temp_transposed, "chart_value", "round(float(!chart_value!),8)", "PYTHON", "")
 
-				if FieldExist(inputFC,currentGeographyLevel):
+				if FieldExist(temp_inputFC,currentGeographyLevel):
 					deleteFields = []
 					deleteFields.append(currentGeographyLevel)
 					t = arcpy.DeleteField_management(temp_transposed, deleteFields)
@@ -287,7 +312,11 @@ for geog in geographyLevels:
 		arcpy.DeleteField_management(temp_dissolve, deleteFields)
 
 #if huc_6 exists delete it
-if FieldExist(inputFC,'HUC_6'):
+if FieldExist(temp_inputFC,'HUC_6'):
 	deleteFields = []
 	deleteFields.append('HUC_6')
-	t = arcpy.DeleteField_management(inputFC, deleteFields)
+	t = arcpy.DeleteField_management(temp_inputFC, deleteFields)
+
+#if temporary input feature class exists delete
+if arcpy.Exists(temp_inputFC):
+	arcpy.Delete_management(temp_inputFC)

@@ -68,7 +68,7 @@ def FieldExist(featureclass, fieldname):
 with open('json/geography_levels_tra.json') as data_file:
     geographyLevels = json.load(data_file)
 
-aggreatate_type = "MEAN"
+aggreatate_type = "SUM"
 
 chartTypes = [{'name':'TRA',
 			   'table':'TRA',
