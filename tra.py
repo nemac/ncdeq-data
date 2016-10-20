@@ -69,6 +69,8 @@ with open('json/geography_levels_tra.json') as data_file:
     geographyLevels = json.load(data_file)
 
 aggreatate_type = "SUM"
+area_AreaSqKM = 'AreaSqKM'
+area_AreaShape = 'Shape_Area'
 
 chartTypes = [{'name':'TRA',
 			   'table':'TRA',
@@ -111,12 +113,8 @@ for chartType in chartTypes:
 
 		#dissolve on geographyLevels
 		StatisticsFields = chartType['fields_dissovled']
-		arcpy.Dissolve_management(inputFC, temp_dissolve, geog['fieldName'], StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
 
-        #attempt at weighted avg
-		for fld in StatisticsFields:
-			if fld[0] != 'AreaSqKM' and fld[1] == 'SUM':
-				arcpy.CalculateField_management(temp_dissolve,  fld[1] + "_" + fld[0], "!" + fld[1] + "_" + fld[0] + "!/!SUM_AreaSqKM!", "PYTHON", "")
+		arcpy.Dissolve_management(inputFC, temp_dissolve, geog['fieldName'], StatisticsFields, "MULTI_PART", "DISSOLVE_LINES" )
 
 		#iterate fields and to send dissolve
 		for field in fields:
@@ -142,6 +140,7 @@ for chartType in chartTypes:
 				for f in output_dict[0]:
 					print '    ' + f
 
+                #add fields from template to the normalized table if they do not exist
 				for field in transposedTemplate:
 					fieldName = field['fieldname']
 					fieldType = field['fieldType']

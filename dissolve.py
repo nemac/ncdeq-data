@@ -88,7 +88,6 @@ aggreatate_type = "SUM"
 area_AreaSqKM = 'AreaSqKM'
 area_AreaShape = 'Shape_Area'
 
-
 #this needs to live in code because the json data is inserted
 chartTypes = [{'name':'baseline',
 			   'table':'NHDCat_comb_baseline',
@@ -252,7 +251,6 @@ for chartType in chartTypes:
         #attempt at weighted avg second part dissolve and calulate the sum of all the weghted scores (area*score) dived by the sum of areas
 		for fld in Calc_Fields:
 			arcpy.CalculateField_management(temp_dissolve,  aggreatate_type + "_" + fld[0], "!" + aggreatate_type + "_" + fld[0] + "!/!" + aggreatate_type + "_" +  fld[1] + "!", "PYTHON", "")
-
 
 		#iterate fields and to send dissolve
 		for field in fields:
