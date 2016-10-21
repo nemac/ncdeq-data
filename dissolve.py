@@ -242,6 +242,7 @@ for chartType in chartTypes:
 		Calc_Fields = chartType['fields_calc']
 
         # #attempt at weighted aveage first part calulate score * area
+        # formulate is sum if all (value*area) / sum of all areas 
 		for fld in Calc_Fields:
 			arcpy.CalculateField_management(temp_inputFC, fld[0], "!" +  fld[0] + "! * !" +  fld[1] + "!", "PYTHON", "")
 
