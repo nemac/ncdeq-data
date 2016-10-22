@@ -2,5 +2,5 @@
 	"level": "NLCD_Catchments",
 	"fieldName": "GRIDCODE",
 	"match": "FIRST_HUC_12",
-	"geographyLevel": 1
+	"geographyLevel": 4
 }]
