@@ -187,7 +187,7 @@ for chartType in chartTypes:
                 # Process: Calculate_chart_level
                 arcpy.CalculateField_management(temp_transposed, "chart_level", "'" + output_dict[0]['chartLevel'] + "'", "PYTHON", "")
 
-                arcpy.CalculateField_management(temp_transposed, "id", "!" + geog['fieldName'] + "!" , "PYTHON", "")
+                arcpy.CalculateField_management(temp_transposed, "ID", "!" + geog['fieldName'] + "!" , "PYTHON", "")
 
                 # Process: Calculate_id
                 arcpy.CalculateField_management(temp_transposed, "geography_label", "'"+ geog['level']+"'", "PYTHON", "")
@@ -224,7 +224,7 @@ for geog in geographyLevels:
     temp_dissolve = os.path.join(outGDBFull, geog['level'])
 
     if FieldExist(temp_dissolve, geog['fieldName']):
-        arcpy.AlterField_management(temp_dissolve,  geog['fieldName'], "id", "id", "", "", "NON_NULLABLE", "false")
+        arcpy.AlterField_management(temp_dissolve,  geog['fieldName'], "ID", "ID", "", "", "NON_NULLABLE", "false")
 
     if FieldExist(temp_dissolve, 'FIRST_HUC_12'):
         deleteFields =[]

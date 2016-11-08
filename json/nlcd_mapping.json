@@ -1,29 +1,29 @@
 [{
-	"fieldName": "NLCD9",
-	"chartDescription": "NLCD Wetlands",
+	"fieldName": "NLCD9c",
+	"chartDescription": "NLCD Wetland",
 	"chartType": "NLCD",
-	"chartLabel": "Wetlands",
+	"chartLabel": "Wetland",
 	"chartLevel": "2",
 	"chartId": "9",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "NLCD8",
-	"chartDescription": "NLCD Planted/Cultivated",
+	"fieldName": "NLCD8c",
+	"chartDescription": "NLCD Cultivated",
 	"chartType": "NLCD",
-	"chartLabel": "Planted/Cultivated",
+	"chartLabel": "Cultivated",
 	"chartLevel": "2",
 	"chartId": "8",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "NLCD7",
-	"chartDescription": "NLCD Herbaceous",
+	"fieldName": "NLCD7c",
+	"chartDescription": "NLCD Grassland",
 	"chartType": "NLCD",
-	"chartLabel": "Herbaceous",
+	"chartLabel": "Grassland",
 	"chartLevel": "2",
 	"chartId": "7",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "NLCD5",
+	"fieldName": "NLCD5c",
 	"chartDescription": "NLCD Shrubland",
 	"chartType": "NLCD",
 	"chartLabel": "Shrubland",
@@ -31,15 +31,15 @@
 	"chartId": "6",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "NLCD4",
+	"fieldName": "NLCD4c",
 	"chartDescription": "NLCD Forest",
 	"chartType": "NLCD",
-	"chartLabel": "Forest",
+	"chartLabel": "Forested",
 	"chartLevel": "2",
 	"chartId": "5",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "NLCD3",
+	"fieldName": "NLCD3c",
 	"chartDescription": "NLCD Barren",
 	"chartType": "NLCD",
 	"chartLabel": "Barren",
@@ -47,24 +47,24 @@
 	"chartId": "4",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "NLCD2",
-	"chartDescription": "NLCD Water",
+	"fieldName": "NLCD2c",
+	"chartDescription": "NLCD Developed",
 	"chartType": "NLCD",
 	"chartLabel": "Developed",
 	"chartLevel": "2",
 	"chartId": "3",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "NLCD1",
-	"chartDescription": "NLCD Water",
+	"fieldName": "NLCD1c",
+	"chartDescription": "Open Water",
 	"chartType": "NLCD",
 	"chartLabel": "Water",
 	"chartLevel": "2",
 	"chartId": "2",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "ALL_uplift",
-	"chartDescription": "Total Uplift",
+	"fieldName": "NLCD_ALL",
+	"chartDescription": "Total NCLD",
 	"chartType": "NLCD",
 	"chartLabel": "Total",
 	"chartLevel": "2",

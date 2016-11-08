@@ -175,7 +175,7 @@ for chartType in chartTypes:
 				# Process: Calculate_chart_level
 				arcpy.CalculateField_management(temp_transposed, "chart_level", "'" + output_dict[0]['chartLevel'] + "'", "PYTHON", "")
 
-				arcpy.CalculateField_management(temp_transposed, "id", "!" + geog['TRA_Name'] + "!" , "PYTHON", "")
+				arcpy.CalculateField_management(temp_transposed, "ID", "!" + geog['TRA_Name'] + "!" , "PYTHON", "")
 
 				# Process: Calculate_id
 				arcpy.CalculateField_management(temp_transposed, "geography_label", """"TRA" +" " +  !TRA_TYPE!""", "PYTHON", "")
@@ -216,7 +216,7 @@ for geog in geographyLevels:
 	temp_dissolve = os.path.join(outGDBFull, geog['level'])
 
 	if FieldExist(temp_dissolve, geog['fieldName'][0]):
-		arcpy.AlterField_management(temp_dissolve,  geog['fieldName'][0], "id", "id", "", "", "NON_NULLABLE", "false")
+		arcpy.AlterField_management(temp_dissolve,  geog['fieldName'][0], "ID", "ID", "", "", "NON_NULLABLE", "false")
 		# arcpy.CalculateField_management(temp_transposed, geog['fieldName'][0], geog['fieldName'][0] + " " + geog['fieldName'][0], "PYTHON", "")
 
 
