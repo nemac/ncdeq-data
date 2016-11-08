@@ -67,7 +67,7 @@
 	"chartDescription": "Total NCLD",
 	"chartType": "NLCD",
 	"chartLabel": "Total",
-	"chartLevel": "2",
+	"chartLevel": "1",
 	"chartId": "1",
 	"chartMatchId": "1"
 }]
