@@ -76,14 +76,14 @@ chartTypes = [{'name':'NHDCatchments_NLCD',
                                     ['HUC_12','FIRST'],
                                     ['AreaSqKM', aggreatate_type],
 			   						['NLCD_ALL', aggreatate_type],
-			   						['NLCD1',aggreatate_type],
-			   						['NLCD2', aggreatate_type],
-			   						['NLCD3', aggreatate_type],
-			   						['NLCD4', aggreatate_type],
-			   						['NLCD5', aggreatate_type],
-			   						['NLCD7', aggreatate_type],
-			   						['NLCD8', aggreatate_type],
-			   						['NLCD9', aggreatate_type]
+			   						['NLCD1c',aggreatate_type],
+			   						['NLCD2c', aggreatate_type],
+			   						['NLCD3c', aggreatate_type],
+			   						['NLCD4c', aggreatate_type],
+			   						['NLCD5c', aggreatate_type],
+			   						['NLCD7c', aggreatate_type],
+			   						['NLCD8c', aggreatate_type],
+			   						['NLCD9c', aggreatate_type]
 								   ]}]
 
 #walk the chart types object and dissolve and transpose (normalize) the data
