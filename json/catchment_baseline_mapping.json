@@ -1,0 +1,41 @@
+[{
+	"fieldName": "WQ_base_norm",
+	"chartDescription": "Total Water Quality Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Water Quality",
+	"chartLevel": "2",
+	"chartId": "4",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "Hydro_base_norm",
+	"chartDescription": "Total Hydrology Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Hydrology",
+	"chartLevel": "2",
+	"chartId": "3",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "Hab_base_norm",
+	"chartDescription": "Total Habitat Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Habitat",
+	"chartLevel": "2",
+	"chartId": "2",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "ALL_base",
+	"chartDescription": "Total Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Total",
+	"chartLevel": "1",
+	"chartId": "1",
+	"chartMatchId": "1"
+}, {
+	"fieldName": "HUC_12",
+	"chartDescription": "",
+	"chartType": "",
+	"chartLabel": "",
+	"chartLevel": "",
+	"chartId": "0",
+	"chartMatchId": "0"
+}]

@@ -1,0 +1,6 @@
+[{
+	"level": "catchments_baseline",
+	"fieldName": "GRIDCODE",
+	"match": "FIRST_HUC_12",
+	"geographyLevel": 4
+}]
