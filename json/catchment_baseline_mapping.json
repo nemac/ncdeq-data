@@ -1,7 +1,7 @@
 [{
 	"fieldName": "WQ_base_norm",
 	"chartDescription": "Total Water Quality Baseline",
-	"chartType": "BASELINE",
+	"chartType": "CATCHMENTS_BASELINE",
 	"chartLabel": "Water Quality",
 	"chartLevel": "2",
 	"chartId": "4",
@@ -9,7 +9,7 @@
 }, {
 	"fieldName": "Hydro_base_norm",
 	"chartDescription": "Total Hydrology Baseline",
-	"chartType": "BASELINE",
+	"chartType": "CATCHMENTS_BASELINE",
 	"chartLabel": "Hydrology",
 	"chartLevel": "2",
 	"chartId": "3",
@@ -17,7 +17,7 @@
 }, {
 	"fieldName": "Hab_base_norm",
 	"chartDescription": "Total Habitat Baseline",
-	"chartType": "BASELINE",
+	"chartType": "CATCHMENTS_BASELINE",
 	"chartLabel": "Habitat",
 	"chartLevel": "2",
 	"chartId": "2",
@@ -25,7 +25,7 @@
 }, {
 	"fieldName": "ALL_base",
 	"chartDescription": "Total Baseline",
-	"chartType": "BASELINE",
+	"chartType": "CATCHMENTS_BASELINE",
 	"chartLabel": "Total",
 	"chartLevel": "1",
 	"chartId": "1",
