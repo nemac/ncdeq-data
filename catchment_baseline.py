@@ -6,8 +6,8 @@
 # Usage: dissolve <input_data>
 # Description:
 # ---------------------------------------------------------------------------
-#run this first no args
-#C:\Python27\ArcGIS10.3\python.exe dissolve.py
+#run this baseline no args
+#C:\Python27\ArcGIS10.3\python.exe catchment_baseline.py
 # Import arcpy module
 import arcpy
 import json

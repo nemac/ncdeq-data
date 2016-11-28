@@ -5,7 +5,7 @@
 # Usage: dissolve <input_data>
 # Description:
 # ---------------------------------------------------------------------------
-#run this fifths no args
+#run this fifth no args
 #C:\Python27\ArcGIS10.3\python.exe traxwalk.py
 
 import arcpy

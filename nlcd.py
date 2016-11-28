@@ -6,7 +6,7 @@
 # Usage: dissolve <input_data>
 # Description:
 # ---------------------------------------------------------------------------
-#run this first no args
+#run this sixth no args
 #C:\Python27\ArcGIS10.3\python.exe dissolve.py
 # Import arcpy module
 import arcpy
