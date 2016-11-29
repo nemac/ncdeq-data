@@ -159,6 +159,14 @@
 	"chartId": "13",
 	"chartMatchId": "5"
 }, {
+	"fieldName": "q10yr_uplift_norm",
+	"chartDescription": "Hydrology 10 year peak flow",
+	"chartType": "UPLIFT",
+	"chartLabel": "10 year peak",
+	"chartLevel": "3",
+	"chartId": "33",
+	"chartMatchId": "5"
+}, {
 	"fieldName": "q50yr_uplift_norm",
 	"chartDescription": "Hydrology 50 year peak flow",
 	"chartType": "UPLIFT",
