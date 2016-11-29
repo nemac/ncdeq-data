@@ -65,8 +65,7 @@ def FieldExist(featureclass, fieldname):
 with open('json/geography_levels_nlcd.json') as data_file:
     geographyLevels = json.load(data_file)
 
-
-aggreatate_type = "MEAN"
+aggreatate_type = "SUM"
 
 #this needs to live in code because the json data is inserted
 chartTypes = [{'name':'NHDCatchments_NLCD',
