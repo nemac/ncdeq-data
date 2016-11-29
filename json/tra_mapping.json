@@ -151,7 +151,7 @@
 	"chartId": "19",
 	"chartMatchId": "2"
 }, {
-	"fieldName": "WQ_uplift_norm",
+	"fieldName": "WQ_base_norm",
 	"chartDescription": "Total Water Quality TRA",
 	"chartType": "TRA",
 	"chartLabel": "Water Quality",
@@ -159,7 +159,7 @@
 	"chartId": "6",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "Hydro_uplift_norm",
+	"fieldName": "Hydro_base_norm",
 	"chartDescription": "Total Hydrology TRA",
 	"chartType": "TRA",
 	"chartLabel": "Hydrology",

@@ -81,21 +81,21 @@ chartTypes = [{'name':'TRA',
 			   						['Hab_uplift_AqCon', aggreatate_type],
 			   						['Hab_uplift_Restoration',aggreatate_type],
 			   						['Hab_uplift_norm',aggreatate_type],
-									['Hydro_uplift_norm', aggreatate_type],
-									['WQ_uplift_norm', aggreatate_type],
-									['MeanLikelihood_norm',area_AreaShape],
-									['q2yr_base_norm',area_AreaSqKM],
-									['q10yr_base_norm',area_AreaSqKM],
-									['q50yr_base_norm',area_AreaSqKM],
-									['q100yr_base_norm',area_AreaSqKM],
-									['N_total_base_norm',area_AreaSqKM],
-									['P_total_base_norm',area_AreaSqKM],
-									['N_AG_base_norm',area_AreaSqKM],
-									['N_URBAN_base_norm',area_AreaSqKM],
-									['N_CMAQ2002KG_base_norm',area_AreaSqKM],
-									['P_AG_base_norm',area_AreaSqKM],
-									['P_URBAN_base_norm',area_AreaSqKM]
-				}]
+			   						['Hydro_base_norm', aggreatate_type],
+			   						['WQ_base_norm', aggreatate_type],
+									['MeanLikelihood_norm',aggreatate_type],
+									['q2yr_base_norm',aggreatate_type],
+									['q10yr_base_norm',aggreatate_type],
+									['q50yr_base_norm',aggreatate_type],
+									['q100yr_base_norm',aggreatate_type],
+									['N_total_base_norm',aggreatate_type],
+									['P_total_base_norm',aggreatate_type],
+									['N_AG_base_norm',aggreatate_type],
+									['N_URBAN_base_norm',aggreatate_type],
+									['N_CMAQ2002KG_base_norm',aggreatate_type],
+									['P_AG_base_norm',aggreatate_type],
+									['P_URBAN_base_norm',aggreatate_type]
+				                ]}]
 
 #walk the chart types object and dissolve and transpose (normalize) the data
 for chartType in chartTypes:
