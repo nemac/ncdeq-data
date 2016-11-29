@@ -1,4 +1,9 @@
-[{
+[ {
+	"level": "huc_12",
+	"fieldName": "HUC_12",
+	"match": "8",
+	"geographyLevel": 3
+},{
 	"level": "NLCD_Catchments",
 	"fieldName": "GRIDCODE",
 	"match": "FIRST_HUC_12",
