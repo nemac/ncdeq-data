@@ -4,7 +4,7 @@
 	"chartType": "TRA",
 	"chartLabel": "Nitrogen Atmosphere",
 	"chartLevel": "4",
-	"chartId": "33",
+	"chartId": "38",
 	"chartMatchId": "24"
 }, {
 	"fieldName": "N_AG_base_norm",
@@ -12,7 +12,7 @@
 	"chartType": "TRA",
 	"chartLabel": "Nitrogen Agriculture",
 	"chartLevel": "4",
-	"chartId": "32",
+	"chartId": "37",
 	"chartMatchId": "24"
 }, {
 	"fieldName": "N_URBAN_base_norm",
@@ -20,7 +20,7 @@
 	"chartType": "TRA",
 	"chartLabel": "Nitrogen Urban",
 	"chartLevel": "4",
-	"chartId": "31",
+	"chartId": "36",
 	"chartMatchId": "24"
 }, {
 	"fieldName": "P_URBAN_base_norm",
@@ -28,7 +28,7 @@
 	"chartType": "TRA",
 	"chartLabel": "Phosphorus Urban",
 	"chartLevel": "4",
-	"chartId": "30",
+	"chartId": "35",
 	"chartMatchId": "23"
 }, {
 	"fieldName": "P_AG_base_norm",
@@ -36,7 +36,7 @@
 	"chartType": "TRA",
 	"chartLabel": "Phosphorus Agriculture",
 	"chartLevel": "4",
-	"chartId": "29",
+	"chartId": "34",
 	"chartMatchId": "23"
 }, {
 	"fieldName": "q2yr_base_norm",
@@ -44,7 +44,7 @@
 	"chartType": "TRA",
 	"chartLabel": "2 year peak",
 	"chartLevel": "3",
-	"chartId": "28",
+	"chartId": "33",
 	"chartMatchId": "5"
 }, {
 	"fieldName": "q10yr_base_norm",
@@ -52,7 +52,7 @@
 	"chartType": "TRA",
 	"chartLabel": "10 year peak",
 	"chartLevel": "3",
-	"chartId": "27",
+	"chartId": "32",
 	"chartMatchId": "5"
 },{
 	"fieldName": "q50yr_base_norm",
@@ -60,7 +60,7 @@
 	"chartType": "TRA",
 	"chartLabel": "50 year peak",
 	"chartLevel": "3",
-	"chartId": "27",
+	"chartId": "31",
 	"chartMatchId": "5"
 },{
 	"fieldName": "q100yr_base_norm",
@@ -68,7 +68,7 @@
 	"chartType": "TRA",
 	"chartLabel": "100 year peak",
 	"chartLevel": "3",
-	"chartId": "26",
+	"chartId": "30",
 	"chartMatchId": "5"
 }, {
 	"fieldName": "MeanLikelihood_norm",
@@ -76,8 +76,32 @@
 	"chartType": "TRA",
 	"chartLabel": "Habitat Likelhood",
 	"chartLevel": "4",
-	"chartId": "25",
+	"chartId": "28",
 	"chartMatchId": "22"
+}, {
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "27",
+	"chartMatchId": "21"
+}, {
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "26",
+	"chartMatchId": "20"
+}, {
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "25",
+	"chartMatchId": "19"
 }, {
 	"fieldName": "N_total_base_norm",
 	"chartDescription": "Nitrogen Baseline",
