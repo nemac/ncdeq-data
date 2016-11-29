@@ -57,7 +57,7 @@
 },{
 	"fieldName": "q50yr_base_norm",
 	"chartDescription": "Hydrology 50 year peak flow",
-	"chartType": "TRA",
+	"chartType": "BASELINE",
 	"chartLabel": "50 year peak",
 	"chartLevel": "3",
 	"chartId": "10",

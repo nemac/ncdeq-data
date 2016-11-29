@@ -1,5 +1,5 @@
 [ {
-	"level": "NLCD HUC12",
+	"level": "NLCD_huc_12",
 	"fieldName": "HUC_12",
 	"match": "8",
 	"geographyLevel": 3

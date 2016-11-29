@@ -1,130 +1,114 @@
 [{
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "24",
+	"chartMatchId": "11"
+},{
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "23",
+	"chartMatchId": "10"
+}, {
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "22",
+	"chartMatchId": "9"
+}, {
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "21",
+	"chartMatchId": "8"
+}, {
 	"fieldName": "N_CMAQ2002KG_base_norm",
 	"chartDescription": "Nitrogen Source Atmosphere",
 	"chartType": "TRA",
 	"chartLabel": "Nitrogen Atmosphere",
 	"chartLevel": "4",
-	"chartId": "38",
-	"chartMatchId": "24"
+	"chartId": "20",
+	"chartMatchId": "7"
 }, {
 	"fieldName": "N_AG_base_norm",
 	"chartDescription": "Nitrogen Source Agriculture",
 	"chartType": "TRA",
 	"chartLabel": "Nitrogen Agriculture",
 	"chartLevel": "4",
-	"chartId": "37",
-	"chartMatchId": "24"
+	"chartId": "19",
+	"chartMatchId": "7"
 }, {
 	"fieldName": "N_URBAN_base_norm",
 	"chartDescription": "Nitrogen Source Urban",
 	"chartType": "TRA",
 	"chartLabel": "Nitrogen Urban",
 	"chartLevel": "4",
-	"chartId": "36",
-	"chartMatchId": "24"
+	"chartId": "18",
+	"chartMatchId": "7"
 }, {
 	"fieldName": "P_URBAN_base_norm",
 	"chartDescription": "Phosphorus Source Urban",
 	"chartType": "TRA",
 	"chartLabel": "Phosphorus Urban",
 	"chartLevel": "4",
-	"chartId": "35",
-	"chartMatchId": "23"
+	"chartId": "17",
+	"chartMatchId": "6"
 }, {
 	"fieldName": "P_AG_base_norm",
 	"chartDescription": "Phosphorus Source Agriculture",
 	"chartType": "TRA",
 	"chartLabel": "Phosphorus Agriculture",
 	"chartLevel": "4",
-	"chartId": "34",
-	"chartMatchId": "23"
+	"chartId": "16",
+	"chartMatchId": "6"
 }, {
 	"fieldName": "q2yr_base_norm",
 	"chartDescription": "Hydrology 2 year peak flow",
 	"chartType": "TRA",
 	"chartLabel": "2 year peak",
 	"chartLevel": "3",
-	"chartId": "33",
-	"chartMatchId": "5"
+	"chartId": "15",
+	"chartMatchId": "1"
 }, {
 	"fieldName": "q10yr_base_norm",
 	"chartDescription": "Hydrology 10 year peak flow",
 	"chartType": "TRA",
 	"chartLabel": "10 year peak",
 	"chartLevel": "3",
-	"chartId": "32",
-	"chartMatchId": "5"
+	"chartId": "14",
+	"chartMatchId": "1"
 },{
 	"fieldName": "q50yr_base_norm",
 	"chartDescription": "Hydrology 50 year peak flow",
 	"chartType": "TRA",
 	"chartLabel": "50 year peak",
 	"chartLevel": "3",
-	"chartId": "31",
-	"chartMatchId": "5"
+	"chartId": "13",
+	"chartMatchId": "1"
 },{
 	"fieldName": "q100yr_base_norm",
 	"chartDescription": "Hydrology 100 year peak flow",
 	"chartType": "TRA",
 	"chartLabel": "100 year peak",
 	"chartLevel": "3",
-	"chartId": "30",
-	"chartMatchId": "5"
-}, {
-	"fieldName": "MeanLikelihood_norm",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "28",
-	"chartMatchId": "22"
-}, {
-	"fieldName": "MeanLikelihood_norm",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "27",
-	"chartMatchId": "21"
-}, {
-	"fieldName": "MeanLikelihood_norm",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "26",
-	"chartMatchId": "20"
-}, {
-	"fieldName": "MeanLikelihood_norm",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "25",
-	"chartMatchId": "19"
-}, {
-	"fieldName": "N_total_base_norm",
-	"chartDescription": "Nitrogen Baseline",
-	"chartType": "BASELINE",
-	"chartLabel": "Nitrogen",
-	"chartLevel": "3",
-	"chartId": "24",
-	"chartMatchId": "6"
-}, {
-	"fieldName": "P_total_base_norm",
-	"chartDescription": "Phosphorus Baseline",
-	"chartType": "TRA",
-	"chartLabel": "Phosphorus",
-	"chartLevel": "3",
-	"chartId": "23",
-	"chartMatchId": "6"
+	"chartId": "12",
+	"chartMatchId": "1"
 },{
 	"fieldName": "Hab_uplift_Restoration",
 	"chartDescription": "Habitat TRA Restoration",
 	"chartType": "TRA",
 	"chartLabel": "Streams Restoration",
 	"chartLevel": "3",
-	"chartId": "22",
+	"chartId": "11",
 	"chartMatchId": "2"
 }, {
 	"fieldName": "Hab_uplift_AqCon",
@@ -132,7 +116,7 @@
 	"chartType": "TRA",
 	"chartLabel": "Aquatic Connectivity",
 	"chartLevel": "3",
-	"chartId": "21",
+	"chartId": "10",
 	"chartMatchId": "2"
 }, {
 	"fieldName": "Hab_uplift_AdvConv",
@@ -140,7 +124,7 @@
 	"chartType": "TRA",
 	"chartLabel": "Avoided Conversion",
 	"chartLevel": "3",
-	"chartId": "20",
+	"chartId": "9",
 	"chartMatchId": "2"
 }, {
 	"fieldName": "Hab_uplift_WetlandsBMPs",
@@ -148,23 +132,39 @@
 	"chartType": "TRA",
 	"chartLabel": "Wetlands and BMPs",
 	"chartLevel": "3",
-	"chartId": "19",
+	"chartId": "8",
 	"chartMatchId": "2"
+},{
+	"fieldName": "N_total_base_norm",
+	"chartDescription": "Nitrogen Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Nitrogen",
+	"chartLevel": "3",
+	"chartId": "7",
+	"chartMatchId": "3"
 }, {
-	"fieldName": "WQ_base_norm",
+	"fieldName": "P_total_base_norm",
+	"chartDescription": "Phosphorus Baseline",
+	"chartType": "TRA",
+	"chartLabel": "Phosphorus",
+	"chartLevel": "3",
+	"chartId": "6",
+	"chartMatchId": "3"
+},{
+	"fieldName": "WQ_uplift_norm",
 	"chartDescription": "Total Water Quality TRA",
 	"chartType": "TRA",
 	"chartLabel": "Water Quality",
 	"chartLevel": "2",
-	"chartId": "6",
+	"chartId": "5",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "Hydro_base_norm",
+	"fieldName": "Hydro_uplift_norm",
 	"chartDescription": "Total Hydrology TRA",
 	"chartType": "TRA",
 	"chartLabel": "Hydrology",
 	"chartLevel": "2",
-	"chartId": "5",
+	"chartId": "3",
 	"chartMatchId": "1"
 }, {
 	"fieldName": "Hab_uplift_norm",
