@@ -1,5 +1,5 @@
 [{
-	"fieldName": "MeanLikelihood_norm",
+	"fieldName": "MeanLikelihood_norm4",
 	"chartDescription": "Total likelhood that key sepeciecs exists",
 	"chartType": "TRA",
 	"chartLabel": "Habitat Likelhood",
@@ -7,7 +7,7 @@
 	"chartId": "24",
 	"chartMatchId": "11"
 },{
-	"fieldName": "MeanLikelihood_norm",
+	"fieldName": "MeanLikelihood_norm3",
 	"chartDescription": "Total likelhood that key sepeciecs exists",
 	"chartType": "TRA",
 	"chartLabel": "Habitat Likelhood",
@@ -15,7 +15,7 @@
 	"chartId": "23",
 	"chartMatchId": "10"
 }, {
-	"fieldName": "MeanLikelihood_norm",
+	"fieldName": "MeanLikelihood_norm2",
 	"chartDescription": "Total likelhood that key sepeciecs exists",
 	"chartType": "TRA",
 	"chartLabel": "Habitat Likelhood",
@@ -23,7 +23,7 @@
 	"chartId": "22",
 	"chartMatchId": "9"
 }, {
-	"fieldName": "MeanLikelihood_norm",
+	"fieldName": "MeanLikelihood_norm1",
 	"chartDescription": "Total likelhood that key sepeciecs exists",
 	"chartType": "TRA",
 	"chartLabel": "Habitat Likelhood",
@@ -141,7 +141,7 @@
 	"chartLabel": "Nitrogen",
 	"chartLevel": "3",
 	"chartId": "7",
-	"chartMatchId": "3"
+	"chartMatchId": "5"
 }, {
 	"fieldName": "P_total_base_norm",
 	"chartDescription": "Phosphorus Baseline",
@@ -149,7 +149,7 @@
 	"chartLabel": "Phosphorus",
 	"chartLevel": "3",
 	"chartId": "6",
-	"chartMatchId": "3"
+	"chartMatchId": "5"
 },{
 	"fieldName": "WQ_uplift_norm",
 	"chartDescription": "Total Water Quality TRA",
