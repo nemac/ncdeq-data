@@ -1,6 +1,102 @@
 [{
+	"fieldName": "N_CMAQ2002KG_base_norm",
+	"chartDescription": "Nitrogen Source Atmosphere",
+	"chartType": "TRA",
+	"chartLabel": "Nitrogen Atmosphere",
+	"chartLevel": "4",
+	"chartId": "33",
+	"chartMatchId": "24"
+}, {
+	"fieldName": "N_AG_base_norm",
+	"chartDescription": "Nitrogen Source Agriculture",
+	"chartType": "TRA",
+	"chartLabel": "Nitrogen Agriculture",
+	"chartLevel": "4",
+	"chartId": "32",
+	"chartMatchId": "24"
+}, {
+	"fieldName": "N_URBAN_base_norm",
+	"chartDescription": "Nitrogen Source Urban",
+	"chartType": "TRA",
+	"chartLabel": "Nitrogen Urban",
+	"chartLevel": "4",
+	"chartId": "31",
+	"chartMatchId": "24"
+}, {
+	"fieldName": "P_URBAN_base_norm",
+	"chartDescription": "Phosphorus Source Urban",
+	"chartType": "TRA",
+	"chartLabel": "Phosphorus Urban",
+	"chartLevel": "4",
+	"chartId": "30",
+	"chartMatchId": "23"
+}, {
+	"fieldName": "P_AG_base_norm",
+	"chartDescription": "Phosphorus Source Agriculture",
+	"chartType": "TRA",
+	"chartLabel": "Phosphorus Agriculture",
+	"chartLevel": "4",
+	"chartId": "29",
+	"chartMatchId": "23"
+}, {
+	"fieldName": "q2yr_base_norm",
+	"chartDescription": "Hydrology 2 year peak flow",
+	"chartType": "TRA",
+	"chartLabel": "2 year peak",
+	"chartLevel": "3",
+	"chartId": "28",
+	"chartMatchId": "5"
+}, {
+	"fieldName": "q10yr_base_norm",
+	"chartDescription": "Hydrology 10 year peak flow",
+	"chartType": "TRA",
+	"chartLabel": "10 year peak",
+	"chartLevel": "3",
+	"chartId": "27",
+	"chartMatchId": "5"
+},{
+	"fieldName": "q50yr_base_norm",
+	"chartDescription": "Hydrology 50 year peak flow",
+	"chartType": "TRA",
+	"chartLabel": "50 year peak",
+	"chartLevel": "3",
+	"chartId": "27",
+	"chartMatchId": "5"
+},{
+	"fieldName": "q100yr_base_norm",
+	"chartDescription": "Hydrology 100 year peak flow",
+	"chartType": "TRA",
+	"chartLabel": "100 year peak",
+	"chartLevel": "3",
+	"chartId": "26",
+	"chartMatchId": "5"
+}, {
+	"fieldName": "MeanLikelihood_norm",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "4",
+	"chartId": "25",
+	"chartMatchId": "22"
+}, {
+	"fieldName": "N_total_base_norm",
+	"chartDescription": "Nitrogen Baseline",
+	"chartType": "BASELINE",
+	"chartLabel": "Nitrogen",
+	"chartLevel": "3",
+	"chartId": "24",
+	"chartMatchId": "6"
+}, {
+	"fieldName": "P_total_base_norm",
+	"chartDescription": "Phosphorus Baseline",
+	"chartType": "TRA",
+	"chartLabel": "Phosphorus",
+	"chartLevel": "3",
+	"chartId": "23",
+	"chartMatchId": "6"
+},{
 	"fieldName": "Hab_uplift_Restoration",
-	"chartDescription": "Habitat Uplift Restoration",
+	"chartDescription": "Habitat TRA Restoration",
 	"chartType": "TRA",
 	"chartLabel": "Streams Restoration",
 	"chartLevel": "3",
@@ -8,7 +104,7 @@
 	"chartMatchId": "2"
 }, {
 	"fieldName": "Hab_uplift_AqCon",
-	"chartDescription": "Habitat Uplift Aquatic Connectivity",
+	"chartDescription": "Habitat TRA Aquatic Connectivity",
 	"chartType": "TRA",
 	"chartLabel": "Aquatic Connectivity",
 	"chartLevel": "3",
@@ -16,7 +112,7 @@
 	"chartMatchId": "2"
 }, {
 	"fieldName": "Hab_uplift_AdvConv",
-	"chartDescription": "Habitat Uplift Avoided Conversion",
+	"chartDescription": "Habitat TRA Avoided Conversion",
 	"chartType": "TRA",
 	"chartLabel": "Avoided Conversion",
 	"chartLevel": "3",
@@ -32,7 +128,7 @@
 	"chartMatchId": "2"
 }, {
 	"fieldName": "WQ_uplift_norm",
-	"chartDescription": "Total Water Quality Uplift",
+	"chartDescription": "Total Water Quality TRA",
 	"chartType": "TRA",
 	"chartLabel": "Water Quality",
 	"chartLevel": "2",
@@ -40,7 +136,7 @@
 	"chartMatchId": "1"
 }, {
 	"fieldName": "Hydro_uplift_norm",
-	"chartDescription": "Total Hydrology Uplift",
+	"chartDescription": "Total Hydrology TRA",
 	"chartType": "TRA",
 	"chartLabel": "Hydrology",
 	"chartLevel": "2",
@@ -48,7 +144,7 @@
 	"chartMatchId": "1"
 }, {
 	"fieldName": "Hab_uplift_norm",
-	"chartDescription": "Total Habitat Uplift",
+	"chartDescription": "Total Habitat TRA",
 	"chartType": "TRA",
 	"chartLabel": "Habitat",
 	"chartLevel": "2",
@@ -56,7 +152,7 @@
 	"chartMatchId": "1"
 }, {
 	"fieldName": "ALL_uplift",
-	"chartDescription": "Total Uplift",
+	"chartDescription": "Total TRA",
 	"chartType": "TRA",
 	"chartLabel": "Total",
 	"chartLevel": "1",
