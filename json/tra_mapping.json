@@ -1,36 +1,4 @@
 [{
-	"fieldName": "MeanLikelihood_norm4",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "24",
-	"chartMatchId": "11"
-},{
-	"fieldName": "MeanLikelihood_norm3",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "23",
-	"chartMatchId": "10"
-}, {
-	"fieldName": "MeanLikelihood_norm2",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "22",
-	"chartMatchId": "9"
-}, {
-	"fieldName": "MeanLikelihood_norm1",
-	"chartDescription": "Total likelhood that key sepeciecs exists",
-	"chartType": "TRA",
-	"chartLabel": "Habitat Likelhood",
-	"chartLevel": "4",
-	"chartId": "21",
-	"chartMatchId": "8"
-}, {
 	"fieldName": "N_CMAQ2002KG_base_norm",
 	"chartDescription": "Nitrogen Source Atmosphere",
 	"chartType": "TRA",
@@ -103,37 +71,45 @@
 	"chartId": "12",
 	"chartMatchId": "3"
 },{
+	"fieldName": "MeanLikelihood_norm1",
+	"chartDescription": "Total likelhood that key sepeciecs exists",
+	"chartType": "TRA",
+	"chartLabel": "Habitat Likelhood",
+	"chartLevel": "3",
+	"chartId": "24",
+	"chartMatchId": "11"
+}, {
 	"fieldName": "Hab_uplift_Restoration",
 	"chartDescription": "Habitat TRA Restoration",
 	"chartType": "TRA",
 	"chartLabel": "Streams Restoration",
-	"chartLevel": "3",
+	"chartLevel": "2",
 	"chartId": "11",
-	"chartMatchId": "2"
+	"chartMatchId": "1"
 }, {
 	"fieldName": "Hab_uplift_AqCon",
 	"chartDescription": "Habitat TRA Aquatic Connectivity",
 	"chartType": "TRA",
 	"chartLabel": "Aquatic Connectivity",
-	"chartLevel": "3",
-	"chartId": "10",
-	"chartMatchId": "2"
+	"chartLevel": "2",
+	"chartId": "11",
+	"chartMatchId": "1"
 }, {
 	"fieldName": "Hab_uplift_AdvConv",
 	"chartDescription": "Habitat TRA Avoided Conversion",
 	"chartType": "TRA",
 	"chartLabel": "Avoided Conversion",
-	"chartLevel": "3",
-	"chartId": "9",
-	"chartMatchId": "2"
+	"chartLevel": "2",
+	"chartId": "11",
+	"chartMatchId": "1"
 }, {
 	"fieldName": "Hab_uplift_WetlandsBMPs",
 	"chartDescription": "Habitat Wetlands and BMPs",
 	"chartType": "TRA",
 	"chartLabel": "Wetlands and BMPs",
-	"chartLevel": "3",
-	"chartId": "8",
-	"chartMatchId": "2"
+	"chartLevel": "2",
+	"chartId": "11",
+	"chartMatchId": "1"
 },{
 	"fieldName": "N_total_base_norm",
 	"chartDescription": "Nitrogen TRA",
@@ -165,14 +141,6 @@
 	"chartLabel": "Hydrology",
 	"chartLevel": "2",
 	"chartId": "3",
-	"chartMatchId": "1"
-}, {
-	"fieldName": "Hab_uplift_norm",
-	"chartDescription": "Total Habitat TRA",
-	"chartType": "TRA",
-	"chartLabel": "Habitat",
-	"chartLevel": "2",
-	"chartId": "2",
 	"chartMatchId": "1"
 }, {
 	"fieldName": "ALL_uplift",
