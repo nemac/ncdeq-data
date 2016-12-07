@@ -24,8 +24,8 @@ def FieldExist(featureclass, fieldname):
 
 spatial_joins = [{'name':'HUC_6'},{'name':'HUC_8'},{'name':'HUC_12'}]
 
+#tra input files
 target = "E:/ncdeq/DMS_RBRP.gdb/TRA"
-# join_features  ="E:/ncdeq/RDRBP_AGO.gdb/HUC_8_MAP"
 out_feature_class = "E:/ncdeq/DMS_RBRP.gdb/TEMP_TRA_XWALK"
 
 join_operation  ="JOIN_ONE_TO_MANY"
@@ -46,8 +46,6 @@ out_feature_class = os.path.join(temp_out_path, temp_out_join)
 
 temp_out_table = "TEMP_TRA_XWALK_CopyRows"
 temp_out = os.path.join(temp_out_path, temp_out_table)
-
-
 
 #if feature class exists delete
 if arcpy.Exists(xwalk):
