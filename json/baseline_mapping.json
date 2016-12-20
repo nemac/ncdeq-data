@@ -85,7 +85,7 @@
 	"chartLabel": "Nitrogen",
 	"chartLevel": "3",
 	"chartId": "6",
-	"chartMatchId": "2"
+	"chartMatchId": "3"
 }, {
 	"fieldName": "P_total_base_norm",
 	"chartDescription": "Phosphorus Baseline",
@@ -93,7 +93,7 @@
 	"chartLabel": "Phosphorus",
 	"chartLevel": "3",
 	"chartId": "5",
-	"chartMatchId": "2"
+	"chartMatchId": "3"
 }, {
 	"fieldName": "WQ_base_norm",
 	"chartDescription": "Total Water Quality Baseline",
