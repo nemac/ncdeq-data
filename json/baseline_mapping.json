@@ -61,7 +61,7 @@
 	"chartLabel": "50 year peak",
 	"chartLevel": "3",
 	"chartId": "10",
-	"chartMatchId": "2"
+	"chartMatchId": "3"
 }, {
 	"fieldName": "q100yr_base_norm",
 	"chartDescription": "Hydrology 100 year peak flow",
