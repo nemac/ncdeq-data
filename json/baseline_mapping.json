@@ -107,9 +107,9 @@
 	"chartDescription": "Total Hydrology Baseline",
 	"chartType": "BASELINE",
 	"chartLabel": "Hydrology",
-  "chartLevel": "2",
+	"chartLevel": "2",
 	"chartId": "3",
-  "chartMatchId": "1"
+	"chartMatchId": "1"
 }, {
 	"fieldName": "Hab_base_norm",
 	"chartDescription": "Total Habitat Baseline",
