@@ -45,7 +45,7 @@
 	"chartLabel": "2 year peak",
 	"chartLevel": "3",
 	"chartId": "8",
-	"chartMatchId": "3"
+	"chartMatchId": "2"
 }, {
 	"fieldName": "q10yr_base_norm",
 	"chartDescription": "Hydrology 10 year peak flow",
@@ -53,7 +53,7 @@
 	"chartLabel": "10 year peak",
 	"chartLevel": "3",
 	"chartId": "9",
-	"chartMatchId": "3"
+	"chartMatchId": "2"
 },{
 	"fieldName": "q50yr_base_norm",
 	"chartDescription": "Hydrology 50 year peak flow",
@@ -61,7 +61,7 @@
 	"chartLabel": "50 year peak",
 	"chartLevel": "3",
 	"chartId": "10",
-	"chartMatchId": "3"
+	"chartMatchId": "2"
 }, {
 	"fieldName": "q100yr_base_norm",
 	"chartDescription": "Hydrology 100 year peak flow",
@@ -69,7 +69,7 @@
 	"chartLabel": "100 year peak",
 	"chartLevel": "3",
 	"chartId": "11",
-	"chartMatchId": "3"
+	"chartMatchId": "2"
 }, {
 	"fieldName": "MeanLikelihood_norm",
 	"chartDescription": "Total likelhood that key sepeciecs exists",
