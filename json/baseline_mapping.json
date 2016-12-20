@@ -71,13 +71,13 @@
 	"chartId": "11",
 	"chartMatchId": "3"
 }, {
-	"fieldName": "Hydro_base_norm",
+	"fieldName": "MeanLikelihood_norm",
 	"chartDescription": "Total likelhood that key sepeciecs exists",
 	"chartType": "BASELINE",
 	"chartLabel": "Habitat Likelhood",
 	"chartLevel": "3",
 	"chartId": "7",
-	"chartMatchId": "4"
+	"chartMatchId": "2"
 }, {
 	"fieldName": "N_total_base_norm",
 	"chartDescription": "Nitrogen Baseline",
@@ -85,7 +85,7 @@
 	"chartLabel": "Nitrogen",
 	"chartLevel": "3",
 	"chartId": "6",
-	"chartMatchId": "2"
+	"chartMatchId": "4"
 }, {
 	"fieldName": "P_total_base_norm",
 	"chartDescription": "Phosphorus Baseline",
@@ -93,14 +93,14 @@
 	"chartLabel": "Phosphorus",
 	"chartLevel": "3",
 	"chartId": "5",
-	"chartMatchId": "2"
+	"chartMatchId": "4"
 }, {
 	"fieldName": "WQ_base_norm",
 	"chartDescription": "Total Water Quality Baseline",
 	"chartType": "BASELINE",
 	"chartLabel": "Water Quality",
 	"chartLevel": "2",
-	"chartId": "2",
+	"chartId": "4",
 	"chartMatchId": "1"
 }, {
 	"fieldName": "Hydro_base_norm",
@@ -116,7 +116,7 @@
 	"chartType": "BASELINE",
 	"chartLabel": "Habitat",
 	"chartLevel": "2",
-	"chartId": "4",
+	"chartId": "2",
 	"chartMatchId": "1"
 }, {
 	"fieldName": "ALL_base",
