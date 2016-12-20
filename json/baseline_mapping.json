@@ -111,7 +111,7 @@
 	"chartId": "3",
 	"chartMatchId": "1"
 }, {
-	"fieldName": "cc",
+	"fieldName": "Hab_base_norm",
 	"chartDescription": "Total Habitat Baseline",
 	"chartType": "BASELINE",
 	"chartLabel": "Habitat",
