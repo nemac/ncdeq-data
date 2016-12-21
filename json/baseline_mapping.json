@@ -44,7 +44,7 @@
 	"chartType": "BASELINE",
 	"chartLabel": "2 year peak",
 	"chartLevel": "3",
-	"chartId": "8",
+	"chartId": "11",
 	"chartMatchId": "2"
 }, {
 	"fieldName": "q10yr_base_norm",
@@ -52,7 +52,7 @@
 	"chartType": "BASELINE",
 	"chartLabel": "10 year peak",
 	"chartLevel": "3",
-	"chartId": "9",
+	"chartId": "10",
 	"chartMatchId": "2"
 },{
 	"fieldName": "q50yr_base_norm",
@@ -60,7 +60,7 @@
 	"chartType": "BASELINE",
 	"chartLabel": "50 year peak",
 	"chartLevel": "3",
-	"chartId": "10",
+	"chartId": "9",
 	"chartMatchId": "2"
 }, {
 	"fieldName": "q100yr_base_norm",
@@ -68,7 +68,7 @@
 	"chartType": "BASELINE",
 	"chartLabel": "100 year peak",
 	"chartLevel": "3",
-	"chartId": "11",
+	"chartId": "8",
 	"chartMatchId": "2"
 }, {
 	"fieldName": "MeanLikelihood_norm",
